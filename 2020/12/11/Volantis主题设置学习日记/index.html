@@ -447,12 +447,16 @@
 
 
   
-  <h2 id="Volantis图标设计"><a href="#Volantis图标设计" class="headerlink" title="Volantis图标设计"></a>Volantis图标设计</h2><p>在hexo-themes-volantis这个文件夹下的_config.yml中，我找到了Volantis主题配置的一些代码，其中，很多图标都是由<code>fas fa-envelope</code>或者<code>fas fa-envelope</code>显示的，比如在博客作者logo下显示的作者联系方式，微博推特等链接的图标：</p>
+  <h2 id="Volantis图标设计"><a href="#Volantis图标设计" class="headerlink" title="Volantis图标设计"></a>Volantis图标设计</h2><h3 id="使用Font-Awesome预设图标"><a href="#使用Font-Awesome预设图标" class="headerlink" title="使用Font Awesome预设图标"></a>使用Font Awesome预设图标</h3><p>在hexo-themes-volantis这个文件夹下的_config.yml中，我找到了Volantis主题配置的一些代码，其中，很多图标都是由<code>fas fa-envelope</code>或者<code>fas fa-envelope</code>显示的，比如在博客作者logo下显示的作者联系方式，微博推特等链接的图标：</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">social:</span><br><span class="line"><span class="bullet">        -</span> icon: fab fa-facebook</span><br><span class="line"><span class="code">          url: https://www.facebook.com/jingtong.xu.779</span></span><br><span class="line"><span class="code">        - icon: fas fa-envelope</span></span><br><span class="line"><span class="code">          url: mailto:xjt980408@163.com</span></span><br><span class="line"><span class="code">        - icon: fab fa-weixin</span></span><br><span class="line"><span class="code">          url: https://www.instagram.com/xjtcoco/</span></span><br><span class="line"><span class="code">        - icon: fab fa-instagram-square</span></span><br><span class="line"><span class="code">          url: https://www.instagram.com/xjtcoco/</span></span><br></pre></td></tr></table></figure>
 
-<p>最开始我完全不知道这些代码的意义，但经过一番搜索，终于在这些图标的名称这一点上找到了突破，这些图标都是由一个名为Font Awesome的图标网站设计的，而在每个index.html文件的头部，都会通过一个js函数导入这些图标。在<a target="_blank" rel="noopener" href="http://www.fontawesome.com.cn/faicons/">这个</a>网站中，可以查到最新的Font Awesome图标的代码。而<a target="_blank" rel="noopener" href="https://fa5.dashgame.com/#/%E5%9B%BE%E6%A0%87">这个</a>网站也可以查到图标的种类（下面会说）。</p>
+<p>最开始我完全不知道这些代码的意义，但经过一番搜索，终于在这些图标的名称这一点上找到了突破，这些图标都是由一个名为Font Awesome的图标网站设计的，而在每个index.html文件的头部，都会通过一个js函数导入这些图标。在<a target="_blank" rel="noopener" href="http://www.fontawesome.com.cn/faicons/">Font Awesome官方网站</a>中，可以查到最新的Font Awesome图标的代码。而<a target="_blank" rel="noopener" href="https://fa5.dashgame.com/#/%E5%9B%BE%E6%A0%87">Font Awesome中文网</a>也可以查到图标的种类（下面会说）。</p>
 <p>然而，当我想要修改这些图标时，又遇到了麻烦，我想要在我的logo下面加入Facebook，微信和Instagram的图标作为链接，但是我将每个icon后面的图标代码修改为相应的图标代码后，重新生成页面，图标竟然无法显示。我认为，这一问题主要是由于代码前的一个代号，比如邮件的<code>fas fa-envelope</code>前有一个<br><code>fas</code>，而<code>fab fa-weixin</code>前的代号却是<code>fab</code>，这两者之间的区别究竟代表什么意义呢？</p>
 <p>又经历了<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/db29ac8b6580">一番搜索</a>后，我终于明白了<code>fas</code>与<code>fab</code>的区别。这是由Font Awesome的新特性引起的，原来的图标前缀<code>fa</code>被更改了为<code>fas</code>，<code>fab</code>与<code>far</code>，具体哪个图标属于哪一个种类可以由上面的官网链接查看。其中，<code>fas</code>代表实心图标，而<code>fab</code>代表品牌图标，这就可以解释为什么我使用<code>fas fa-nstagram</code>，而在网站上无法显示的问题了。</p>
+<h3 id="使用图片作为图标"><a href="#使用图片作为图标" class="headerlink" title="使用图片作为图标"></a>使用图片作为图标</h3><p>这是我通过实验多次未果，最后百度搜索得到的结果，Hexo默认的文件位置在 <strong>/blog/source</strong> 文件目录下，因此如果在source文件夹下新建了一个images文件夹用来存放所有博客需要的图片文件，并使用rowlet.png作为我的头像（没错，就是左边那只可爱的木木枭！），那么我需要在_config.volantis.yml中的sidebar项-widget_library项中的avatar设置为<code>/images/rowlet.png</code>，这样就可以找到正确的文件路径了。然后就可以惊喜的发现，我的头像变成了一只可爱的木木枭！<img src="/images/rowlet.png" class="lazyload" data-srcset="/images/rowlet.png" srcset="data:image/png;base64,666" alt="木呼"></p>
+<p>这时问题又会来了，如果我要在文章中添加图片的话，如下代码段是无效的：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">木呼</span>](<span class="link">/images/rowlet.png</span>)</span><br></pre></td></tr></table></figure>
+<p>通过F12查看网页源代码，发现这个图片的地址被自动设定为</p>
 <p>整了一上午，终于整明白了，之后还可以再搞搞别的，比如文章作者，最后修改时间等问题。</p>
 
   
@@ -473,7 +477,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-11T14:00:45+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-11T15:14:02+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>最后更新于：2020年12月11日</p>
@@ -639,7 +643,7 @@ RUNOOB.COMGOOGLE.COMBAIDU.COM
           
         
           
-            <a href="https://www.instagram.com/xjtcoco/"
+            <a href="/images/mywechat.jpg"
               class="social fab fa-weixin flat-btn"
               target="_blank"
               rel="external nofollow noopener noreferrer">
@@ -679,7 +683,7 @@ RUNOOB.COMGOOGLE.COMBAIDU.COM
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Volantis%E5%9B%BE%E6%A0%87%E8%AE%BE%E8%AE%A1"><span class="toc-text">Volantis图标设计</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Volantis%E5%9B%BE%E6%A0%87%E8%AE%BE%E8%AE%A1"><span class="toc-text">Volantis图标设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Font-Awesome%E9%A2%84%E8%AE%BE%E5%9B%BE%E6%A0%87"><span class="toc-text">使用Font Awesome预设图标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9B%BE%E7%89%87%E4%BD%9C%E4%B8%BA%E5%9B%BE%E6%A0%87"><span class="toc-text">使用图片作为图标</span></a></li></ol></li></ol>
     </div>
   </section>
 
