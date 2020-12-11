@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -21,7 +19,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>归档 - YazidZidane</title>
+  <title>Volantis主题设置学习日记 - YazidZidane</title>
+  
+    <meta name="keywords" content="Volantis">
   
 
   
@@ -56,7 +56,7 @@
 <body>
   
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -309,7 +309,7 @@
     <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  dock' style="display: ;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -387,82 +387,246 @@
         
 
 <div class='l_main'>
-	
-	  <article id="arc" class="post article white-box reveal shadow">
-			
-			
-				
-				
-					
-						
-						<h2>2020</h2>
-					
-						<div class='timenode'>
-								<a class="meta" href="/2020/12/11/Volantis%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">
-									<time>12-11</time>
-									
-										Volantis主题设置学习日记
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2020/12/10/2020-12-10-a-new-article/">
-									<time>12-10</time>
-									
-										2020-12-10:a new article
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2020/12/10/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87Markdown%E5%8D%9A%E5%AE%A2%E2%98%9D/">
-									<time>12-10</time>
-									
-										我的第一篇Markdown博客☝
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2020/12/10/hello-world/">
-									<time>12-10</time>
-									
-										Hello World
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-	  </article>
-	
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        Volantis主题设置学习日记
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>请设置文章作者</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年12月11日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="Volantis主题设置学习日记" data-path="/2020/12/11/Volantis%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <h2 id="Volantis图标设计"><a href="#Volantis图标设计" class="headerlink" title="Volantis图标设计"></a>Volantis图标设计</h2><p>在hexo-themes-volantis这个文件夹下的_config.yml中，我找到了Volantis主题配置的一些代码，其中，很多图标都是由<code>fas fa-envelope</code>或者<code>fas fa-envelope</code>显示的，比如在博客作者logo下显示的作者联系方式，微博推特等链接的图标：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">social:</span><br><span class="line"><span class="bullet">        -</span> icon: fab fa-facebook</span><br><span class="line"><span class="code">          url: https://www.facebook.com/jingtong.xu.779</span></span><br><span class="line"><span class="code">        - icon: fas fa-envelope</span></span><br><span class="line"><span class="code">          url: mailto:xjt980408@163.com</span></span><br><span class="line"><span class="code">        - icon: fab fa-weixin</span></span><br><span class="line"><span class="code">          url: https://www.instagram.com/xjtcoco/</span></span><br><span class="line"><span class="code">        - icon: fab fa-instagram-square</span></span><br><span class="line"><span class="code">          url: https://www.instagram.com/xjtcoco/</span></span><br></pre></td></tr></table></figure>
+
+<p>最开始我完全不知道这些代码的意义，但经过一番搜索，终于在这些图标的名称这一点上找到了突破，这些图标都是由一个名为Font Awesome的图标网站设计的，而在每个index.html文件的头部，都会通过一个js函数导入这些图标。在<a target="_blank" rel="noopener" href="http://www.fontawesome.com.cn/faicons/">这个</a>网站中，可以查到最新的Font Awesome图标的代码。而<a target="_blank" rel="noopener" href="https://fa5.dashgame.com/#/%E5%9B%BE%E6%A0%87">这个</a>网站也可以查到图标的种类（下面会说）。</p>
+<p>然而，当我想要修改这些图标时，又遇到了麻烦，我想要在我的logo下面加入Facebook，微信和Instagram的图标作为链接，但是我将每个icon后面的图标代码修改为相应的图标代码后，重新生成页面，图标竟然无法显示。我认为，这一问题主要是由于代码前的一个代号，比如邮件的<code>fas fa-envelope</code>前有一个<br><code>fas</code>，而<code>fab fa-weixin</code>前的代号却是<code>fab</code>，这两者之间的区别究竟代表什么意义呢？</p>
+<p>又经历了<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/db29ac8b6580">一番搜索</a>后，我终于明白了<code>fas</code>与<code>fab</code>的区别。这是由Font Awesome的新特性引起的，原来的图标前缀<code>fa</code>被更改了为<code>fas</code>，<code>fab</code>与<code>far</code>，具体哪个图标属于哪一个种类可以由上面的官网链接查看。其中，<code>fas</code>代表实心图标，而<code>fab</code>代表品牌图标，这就可以解释为什么我使用<code>fas fa-nstagram</code>，而在网站上无法显示的问题了。</p>
+<p>整了一上午，终于整明白了，之后还可以再搞搞别的，比如文章作者，最后修改时间等问题。</p>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://example.com/2020/12/11/Volantis%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/>http://example.com/2020/12/11/Volantis%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-11T11:31:31+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年12月11日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Volantis/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Volantis</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/12/11/Volantis%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/&title=Volantis主题设置学习日记 - YazidZidane&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2020/12/11/Volantis%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/&title=Volantis主题设置学习日记 - YazidZidane&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/12/11/Volantis%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/&title=Volantis主题设置学习日记 - YazidZidane&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2020/12/10/2020-12-10-a-new-article/'>
+          <p class='title'>2020-12-10:a new article<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>This is a new article
+
+1$ hexo server
+
+RUNOOB.COMGOOGLE.COMBAIDU.COM
+</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Volantis%E5%9B%BE%E6%A0%87%E8%AE%BE%E8%AE%A1"><span class="toc-text">Volantis图标设计</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
   
     
     
@@ -537,235 +701,9 @@
 
   
 
-  
-    
-    
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/Volantis/" style="font-size: 14px; color: #999">Volantis</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 14px; color: #999">随笔</a>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
-
-<section class="widget qrcode shadow desktop mobile">
-  
-
-  <div class='content article-entry'>
-    
-      <img src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png'
-      
-        height='64px'
-      />
-    
-      <img src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png'
-      
-        height='64px'
-      />
-    
-  </div>
-</section>
-
-  
-
-  
-    
-    
-
-<section class="widget shadow desktop">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>4 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2020/12/10'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Fri Dec 11 2020 11:31:40 GMT+0800 (GMT+08:00)</div>
-            <div id="last-update-show">2020-12-11 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2020-12-11 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
-
-  
-
-  
-    
-    
-
-<section class="widget grid shadow desktop mobile">
-  
-  <header>
-    
-      <a target="_blank" rel="noopener" href='https://github.com/volantis-x/hexo-theme-volantis'><i class="fas fa-headset fa-fw" aria-hidden="true"></i><span class='name'>联系开发者</span></a>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="grid navigation fixed">
-      
-        <a class="flat-box" title="https://github.com/volantis-x/hexo-theme-volantis/issues/" target="_blank" rel="noopener" href="https://github.com/volantis-x/hexo-theme-volantis/issues/"
-          
-          
-          id="https:githubcomvolantis-xhexo-theme-volantisissues">
-          
-            <i class="fas fa-bug fa-fw" aria-hidden="true"></i>
-          
-          反馈BUG
-        </a>
-      
-        <a class="flat-box" title="https://github.com/volantis-x/hexo-theme-volantis/issues/" target="_blank" rel="noopener" href="https://github.com/volantis-x/hexo-theme-volantis/issues/"
-          
-          
-          id="https:githubcomvolantis-xhexo-theme-volantisissues">
-          
-            <i class="fas fa-question-circle fa-fw" aria-hidden="true"></i>
-          
-          疑问求助
-        </a>
-      
-        <a class="flat-box" title="https://github.com/volantis-x/hexo-theme-volantis/issues/" target="_blank" rel="noopener" href="https://github.com/volantis-x/hexo-theme-volantis/issues/"
-          
-          
-          id="https:githubcomvolantis-xhexo-theme-volantisissues">
-          
-            <i class="fas fa-lightbulb fa-fw" aria-hidden="true"></i>
-          
-          提个建议
-        </a>
-      
-    </div>
-  </div>
-</section>
-
-  
-
 
 </aside>
+
 
 
         
@@ -775,14 +713,14 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="Volantis主题设置学习日记";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
 </script>
 
