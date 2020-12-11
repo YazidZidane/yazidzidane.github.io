@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Volantis主题设置学习日记</title>
+      <link href="2020/12/11/Volantis%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/"/>
+      <url>2020/12/11/Volantis%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Volantis图标设计"><a href="#Volantis图标设计" class="headerlink" title="Volantis图标设计"></a>Volantis图标设计</h2><h3 id="使用Font-Awesome预设图标"><a href="#使用Font-Awesome预设图标" class="headerlink" title="使用Font Awesome预设图标"></a>使用Font Awesome预设图标</h3><p>在hexo-themes-volantis这个文件夹下的_config.yml中，我找到了Volantis主题配置的一些代码，其中，很多图标都是由<code>fas fa-envelope</code>或者<code>fas fa-envelope</code>显示的，比如在博客作者logo下显示的作者联系方式，微博推特等链接的图标：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">social:</span><br><span class="line"><span class="bullet">        -</span> icon: fab fa-facebook</span><br><span class="line"><span class="code">          url: https://www.facebook.com/jingtong.xu.779</span></span><br><span class="line"><span class="code">        - icon: fas fa-envelope</span></span><br><span class="line"><span class="code">          url: mailto:xjt980408@163.com</span></span><br><span class="line"><span class="code">        - icon: fab fa-weixin</span></span><br><span class="line"><span class="code">          url: https://www.instagram.com/xjtcoco/</span></span><br><span class="line"><span class="code">        - icon: fab fa-instagram-square</span></span><br><span class="line"><span class="code">          url: https://www.instagram.com/xjtcoco/</span></span><br></pre></td></tr></table></figure><p>最开始我完全不知道这些代码的意义，但经过一番搜索，终于在这些图标的名称这一点上找到了突破，这些图标都是由一个名为Font Awesome的图标网站设计的，而在每个index.html文件的头部，都会通过一个js函数导入这些图标。在<a href="https://fa5.dashgame.com/#/%E5%9B%BE%E6%A0%87">Font Awesome官方网站</a>中，可以查到最新的Font Awesome图标的代码。而<a href="http://www.fontawesome.com.cn/faicons/">Font Awesome中文网</a>也可以查到图标的种类（下面会说）。</p><p>然而，当我想要修改这些图标时，又遇到了麻烦，我想要在我的logo下面加入Facebook，微信和Instagram的图标作为链接，但是我将每个icon后面的图标代码修改为相应的图标代码后，重新生成页面，图标竟然无法显示。我认为，这一问题主要是由于代码前的一个代号，比如邮件的<code>fas fa-envelope</code>前有一个<br><code>fas</code>，而<code>fab fa-weixin</code>前的代号却是<code>fab</code>，这两者之间的区别究竟代表什么意义呢？</p><p>又经历了<a href="https://www.jianshu.com/p/db29ac8b6580">一番搜索</a>后，我终于明白了<code>fas</code>与<code>fab</code>的区别。这是由Font Awesome的新特性引起的，原来的图标前缀<code>fa</code>被更改了为<code>fas</code>，<code>fab</code>与<code>far</code>，具体哪个图标属于哪一个种类可以由上面的官网链接查看。其中，<code>fas</code>代表实心图标，而<code>fab</code>代表品牌图标，这就可以解释为什么我使用<code>fas fa-nstagram</code>，而在网站上无法显示的问题了。</p><h3 id="使用图片作为图标"><a href="#使用图片作为图标" class="headerlink" title="使用图片作为图标"></a>使用图片作为图标</h3><p>这是我通过实验多次未果，最后百度搜索得到的结果，Hexo默认的文件位置在 <strong>/blog/source</strong> 文件目录下，因此如果在source文件夹下新建了一个images文件夹用来存放所有博客需要的图片文件，并使用rowlet.png作为我的头像（没错，就是左边那只可爱的木木枭！），那么我需要在_config.volantis.yml中的sidebar项-widget_library项中的avatar设置为<code>/images/rowlet.png</code>，这样就可以找到正确的文件路径了。然后就可以惊喜的发现，我的头像变成了一只可爱的木木枭！<img src="/images/rowlet.png" class="lazyload" data-srcset="/images/rowlet.png" srcset="data:image/png;base64,666" alt="木呼"></p><!-- 这时问题又会来了，如果我要在文章中添加图片的话，如下代码段是无效的：<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">木呼</span>](<span class="link">/images/rowlet.png</span>)</span><br></pre></td></tr></table></figure><p>通过F12查看网页源代码，发现这个图片的地址被自动设定为 –&gt;</p><p>整了一上午，终于整明白了，之后还可以再搞搞别的，比如文章作者，最后修改时间等问题。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Volantis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>2020-12-10:a New Article</title>
+      <link href="2020/12/10/2020-12-10-a-new-article/"/>
+      <url>2020/12/10/2020-12-10-a-new-article/</url>
+      
+        <content type="html"><![CDATA[<h3 id="This-is-a-new-article"><a href="#This-is-a-new-article" class="headerlink" title="This is a new article"></a>This is a new article</h3><hr><hr><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p><strong>RUNOOB.COM</strong><br><em>GOOGLE.COM</em><br><del>BAIDU.COM</del></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>我的第一篇Markdown博客☝</title>
+      <link href="2020/12/10/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87Markdown%E5%8D%9A%E5%AE%A2%E2%98%9D/"/>
+      <url>2020/12/10/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87Markdown%E5%8D%9A%E5%AE%A2%E2%98%9D/</url>
+      
+        <content type="html"><![CDATA[<p>这是我使用markdown语法写的第一篇博客，其中主要目的是测试markdown语法的各种功能以及写一些以后可以在这个博客中继续学习的方面。</p><hr><p>Markdown的语法非常简单，似乎只需要通过几种格式就可以让文本变得更加生动。<br>我要不要把这些方式全部记录下？<br>算了，还是留下一个连接方便查阅<a href="https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/markdown-basics?id=%e8%af%ad%e6%b3%95%e8%af%b4%e6%98%8e">Markdown语法</a>比较好。<br>接下来是一些测试环节，如果你不知道我在写什么，那就对了。</p><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><h1 id="哈"><a href="#哈" class="headerlink" title="哈"></a>哈</h1><h2 id="哈哈"><a href="#哈哈" class="headerlink" title="哈哈"></a>哈哈</h2><h3 id="哈哈哈"><a href="#哈哈哈" class="headerlink" title="哈哈哈"></a>哈哈哈</h3><h4 id="哈哈哈哈"><a href="#哈哈哈哈" class="headerlink" title="哈哈哈哈"></a>哈哈哈哈</h4><h5 id="哈哈哈哈哈"><a href="#哈哈哈哈哈" class="headerlink" title="哈哈哈哈哈"></a>哈哈哈哈哈</h5><h6 id="哈哈哈哈哈哈"><a href="#哈哈哈哈哈哈" class="headerlink" title="哈哈哈哈哈哈"></a>哈哈哈哈哈哈</h6><p>####### 哈哈哈哈哈哈哈 </p><p>Markdown最多只支持六级标题，七级就太多了。<br>卧槽，写这么多哈，我连这个字都不认识了。</p><h2 id="各种奇妙类型的文字"><a href="#各种奇妙类型的文字" class="headerlink" title="各种奇妙类型的文字"></a>各种奇妙类型的文字</h2><p><u>带下划线的文本</u></p><p><em>这会是 斜体 的文字</em><br><em>这会是 斜体 的文字</em></p><p><strong>这会是 粗体 的文字</strong><br><strong>这会是 粗体 的文字</strong></p><p><em>你也 <strong>组合</strong> 这些符号</em></p><p><del>这个文字将会被横线删除</del></p><!-- 创建脚注格式类似这样 [^RUNOOB]。[^RUNOOB]: 菜鸟教程 -- 学的不仅是技术，更是梦想！！！ --><p>sadasdssafassadasdasdsa<br>富豪排队静安寺欧弟和以为广大千万i<br>###This is a new article</p><h2 id="代码段"><a href="#代码段" class="headerlink" title="代码段"></a>代码段</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//C语言代码</span></span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Hello world!&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--markdown语法--&gt;</span><br><span class="line">https://github.com - 自动生成！</span><br><span class="line">[<span class="string">GitHub</span>](<span class="link">https://github.com</span>)</span><br></pre></td></tr></table></figure><p>😄</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 随笔 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="2020/12/10/hello-world/"/>
+      <url>2020/12/10/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
