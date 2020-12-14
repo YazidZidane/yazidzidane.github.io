@@ -474,9 +474,8 @@
 <p>然而，当我想要修改这些图标时，又遇到了麻烦，我想要在我的logo下面加入Facebook，微信和Instagram的图标作为链接，但是我将每个icon后面的图标代码修改为相应的图标代码后，重新生成页面，图标竟然无法显示。我认为，这一问题主要是由于代码前的一个代号，比如邮件的<code>fas fa-envelope</code>前有一个<br><code>fas</code>，而<code>fab fa-weixin</code>前的代号却是<code>fab</code>，这两者之间的区别究竟代表什么意义呢？</p>
 <p>又经历了<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/db29ac8b6580">一番搜索</a>后，我终于明白了<code>fas</code>与<code>fab</code>的区别。这是由Font Awesome的新特性引起的，原来的图标前缀<code>fa</code>被更改了为<code>fas</code>，<code>fab</code>与<code>far</code>，具体哪个图标属于哪一个种类可以由上面的官网链接查看。其中，<code>fas</code>代表实心图标，而<code>fab</code>代表品牌图标，这就可以解释为什么我使用<code>fas fa-nstagram</code>，而在网站上无法显示的问题了。</p>
 <h3 id="使用图片作为图标"><a href="#使用图片作为图标" class="headerlink" title="使用图片作为图标"></a>使用图片作为图标</h3><p>这是我通过实验多次未果，最后百度搜索得到的结果，Hexo默认的文件位置在 <strong>/blog/source</strong> 文件目录下，因此如果在source文件夹下新建了一个images文件夹用来存放所有博客需要的图片文件，并使用rowlet.png作为我的头像（没错，就是左边那只可爱的木木枭！），那么我需要在_config.volantis.yml中的sidebar项-widget_library项中的avatar设置为<code>/images/rowlet.png</code>，这样就可以找到正确的文件路径了。然后就可以惊喜的发现，我的头像变成了一只可爱的木木枭！<img src="/images/rowlet.png" class="lazyload" data-srcset="/images/rowlet.png" srcset="data:image/png;base64,666" alt="木呼"></p>
-<!-- 这时问题又会来了，如果我要在文章中添加图片的话，如下代码段是无效的：
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">木呼</span>](<span class="link">/images/rowlet.png</span>)</span><br></pre></td></tr></table></figure>
-<p>通过F12查看网页源代码，发现这个图片的地址被自动设定为 –&gt;</p>
+<h2 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h2><h3 id="文章中的注释"><a href="#文章中的注释" class="headerlink" title="文章中的注释"></a>文章中的注释</h3><p>在12月11日的版本中，我将写完的文章部署到GitHub上后，发现这篇文章的评论区以及侧边栏都没有正确加载出来，我开始是以为这是因为GitHub的网络延迟而导致的，可是在刷新了几遍之后问题依旧存在，这一个周末都没有怎么搞博客，也没有继续管这个问题。12月14日早晨，终于在调试了几次之后发现了玄机。<br>原来的文章中有一大段<strong>注释</strong>，本来是我想在之后写下来的内容，因为没有写完而被注释掉了，在我删除了这段注释之后在使用<code>hexo g &amp;&amp; hexo s</code>生成后，显示的页面就不再有问题了。</p>
+<p>但是，在我再次在文章的某一段落加上注释之后，同样的问题就不再生成了，所以可能也并不是注释引起的问题。。。😂</p>
 <p>整了一上午，终于整明白了，之后还可以再搞搞别的，比如文章作者，最后修改时间等问题。</p>
 
   
@@ -497,10 +496,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-11T16:17:27+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-14T08:45:07+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>最后更新于：2020年12月11日</p>
+    <p>最后更新于：2020年12月14日</p>
   </a>
 </div>
 
@@ -703,7 +702,7 @@ RUNOOB.COMGOOGLE.COMBAIDU.COM
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Volantis%E5%9B%BE%E6%A0%87%E8%AE%BE%E8%AE%A1"><span class="toc-text">Volantis图标设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Font-Awesome%E9%A2%84%E8%AE%BE%E5%9B%BE%E6%A0%87"><span class="toc-text">使用Font Awesome预设图标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9B%BE%E7%89%87%E4%BD%9C%E4%B8%BA%E5%9B%BE%E6%A0%87"><span class="toc-text">使用图片作为图标</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Volantis%E5%9B%BE%E6%A0%87%E8%AE%BE%E8%AE%A1"><span class="toc-text">Volantis图标设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Font-Awesome%E9%A2%84%E8%AE%BE%E5%9B%BE%E6%A0%87"><span class="toc-text">使用Font Awesome预设图标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9B%BE%E7%89%87%E4%BD%9C%E4%B8%BA%E5%9B%BE%E6%A0%87"><span class="toc-text">使用图片作为图标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98"><span class="toc-text">其他问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E4%B8%AD%E7%9A%84%E6%B3%A8%E9%87%8A"><span class="toc-text">文章中的注释</span></a></li></ol></li></ol>
     </div>
   </section>
 
