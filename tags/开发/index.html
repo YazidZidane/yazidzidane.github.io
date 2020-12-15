@@ -197,7 +197,7 @@
       <div class="m_search">
         <form name="searchform" class="form u-search-form">
           <i class="icon fas fa-search fa-fw"></i>
-          <input type="text" class="input u-search-input" placeholder="[object Object]" />
+          <input type="text" class="input u-search-input" placeholder="Search..." />
         </form>
       </div>
 
@@ -484,15 +484,12 @@
     
       <div class='text'>
         
-          <h2>Ted Xu</h2>
+          <h2>🤟Ted Xu😏</h2>
         
         
           <p>有时候会用训练家的怀抱或包包代替巢穴。喜欢吃。</p>
 
         
-        
-          <p><span id="jinrishici-sentence">Ted Xu</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
         
       </div>
     
@@ -610,7 +607,7 @@
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>2.7k 字</div>
+          <div>3.2k 字</div>
         </div>
       
 
@@ -636,7 +633,7 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Tue Dec 15 2020 14:10:52 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update" style="display: none;">Tue Dec 15 2020 14:49:47 GMT+0800 (GMT+08:00)</div>
             <div id="last-update-show">2020-12-15 日</div>
           
         </div>
@@ -790,7 +787,7 @@
     
       
         
-          <div><p>本站总访问量为<span id="busuanzi_value_site_pv"> <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> </span>次 <span id="busuanzi_value_site_uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+          <div><p>本站总访问量为<span id="busuanzi_value_site_pv"> <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> </span>次 访客数为<span id="busuanzi_value_site_uv"> <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> </span>人</p>
 </div>
         
       
@@ -1159,7 +1156,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
 
 $('.input.u-search-input').one('focus',function(){
 	
-		loadScript('/js/search/hexo.js',setSearchService);
+		loadScript('https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2.6.4/js/search.js',setSearchService);
 	
 })
 

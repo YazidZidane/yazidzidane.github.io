@@ -199,7 +199,7 @@
       <div class="m_search">
         <form name="searchform" class="form u-search-form">
           <i class="icon fas fa-search fa-fw"></i>
-          <input type="text" class="input u-search-input" placeholder="[object Object]" />
+          <input type="text" class="input u-search-input" placeholder="Search..." />
         </form>
       </div>
 
@@ -467,10 +467,14 @@
 <h2 id="Volantis图标设计"><a href="#Volantis图标设计" class="headerlink" title="Volantis图标设计"></a>Volantis图标设计</h2><h3 id="使用Font-Awesome预设图标"><a href="#使用Font-Awesome预设图标" class="headerlink" title="使用Font Awesome预设图标"></a>使用Font Awesome预设图标</h3><p>在hexo-themes-volantis这个文件夹下的_config.yml中，我找到了Volantis主题配置的一些代码，其中，很多图标都是由<code>fas fa-envelope</code>或者<code>fas fa-envelope</code>显示的，比如在博客作者logo下显示的作者联系方式，微博推特等链接的图标：</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">social:</span><br><span class="line"><span class="bullet">        -</span> icon: fab fa-facebook</span><br><span class="line"><span class="code">          url: https://www.facebook.com/jingtong.xu.779</span></span><br><span class="line"><span class="code">        - icon: fas fa-envelope</span></span><br><span class="line"><span class="code">          url: mailto:xjt980408@163.com</span></span><br><span class="line"><span class="code">        - icon: fab fa-weixin</span></span><br><span class="line"><span class="code">          url: https://www.instagram.com/xjtcoco/</span></span><br><span class="line"><span class="code">        - icon: fab fa-instagram-square</span></span><br><span class="line"><span class="code">          url: https://www.instagram.com/xjtcoco/</span></span><br></pre></td></tr></table></figure>
 
-<p>最开始我完全不知道这些代码的意义，但经过一番搜索，终于在这些图标的名称这一点上找到了突破，这些图标都是由一个名为Font Awesome的图标网站设计的，而在每个index.html文件的头部，都会通过一个js函数导入这些图标。在<a target="_blank" rel="noopener" href="https://fa5.dashgame.com/#/%E5%9B%BE%E6%A0%87">Font Awesome官方网站</a>中，可以查到最新的Font Awesome图标的代码。而<a target="_blank" rel="noopener" href="http://www.fontawesome.com.cn/faicons/">Font Awesome中文网</a>也可以查到图标的种类（下面会说）。</p>
+<p>最开始我完全不知道这些代码的意义，但经过一番搜索，终于在这些图标的名称这一点上找到了突破，这些图标都是由一个名为Font Awesome的图标网站设计的，而在每个<strong>index.html</strong>文件的头部，都会通过一个js函数导入这些图标。在<a target="_blank" rel="noopener" href="https://fa5.dashgame.com/#/%E5%9B%BE%E6%A0%87">Font Awesome官方网站</a>中，可以查到最新的Font Awesome图标的代码。而<a target="_blank" rel="noopener" href="http://www.fontawesome.com.cn/faicons/">Font Awesome中文网</a>也可以查到图标的种类（下面会说）。</p>
 <p>然而，当我想要修改这些图标时，又遇到了麻烦，我想要在我的logo下面加入Facebook，微信和Instagram的图标作为链接，但是我将每个icon后面的图标代码修改为相应的图标代码后，重新生成页面，图标竟然无法显示。我认为，这一问题主要是由于代码前的一个代号，比如邮件的<code>fas fa-envelope</code>前有一个<br><code>fas</code>，而<code>fab fa-weixin</code>前的代号却是<code>fab</code>，这两者之间的区别究竟代表什么意义呢？</p>
 <p>又经历了<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/db29ac8b6580">一番搜索</a>后，我终于明白了<code>fas</code>与<code>fab</code>的区别。这是由Font Awesome的新特性引起的，原来的图标前缀<code>fa</code>被更改了为<code>fas</code>，<code>fab</code>与<code>far</code>，具体哪个图标属于哪一个种类可以由上面的官网链接查看。其中，<code>fas</code>代表实心图标，而<code>fab</code>代表品牌图标，这就可以解释为什么我使用<code>fas fa-nstagram</code>，而在网站上无法显示的问题了。</p>
-<h3 id="使用图片作为图标"><a href="#使用图片作为图标" class="headerlink" title="使用图片作为图标"></a>使用图片作为图标</h3><p>这是我通过实验多次未果，最后百度搜索得到的结果，Hexo默认的文件位置在 <strong>/blog/source</strong> 文件目录下，因此如果在source文件夹下新建了一个images文件夹用来存放所有博客需要的图片文件，并使用rowlet.png作为我的头像（没错，就是左边那只可爱的木木枭！），那么我需要在_config.volantis.yml中的sidebar项-widget_library项中的avatar设置为<code>/images/rowlet.png</code>，这样就可以找到正确的文件路径了。然后就可以惊喜的发现，我的头像变成了一只可爱的木木枭！<img src="/images/rowlet.png" class="lazyload" data-srcset="/images/rowlet.png" srcset="data:image/png;base64,666" alt="木呼"></p>
+<h3 id="使用图片作为图标"><a href="#使用图片作为图标" class="headerlink" title="使用图片作为图标"></a>使用图片作为图标</h3><p>这是我通过实验多次未果，最后百度搜索得到的结果，Hexo默认的文件位置在 <strong>/blog/source</strong> 文件目录下，因此如果在<strong>source</strong>文件夹下新建了一个<strong>images</strong>文件夹用来存放所有博客需要的图片文件，并使用<strong>rowlet.png</strong>作为我的头像（没错，就是左边那只可爱的木木枭！），那么我需要在<strong>_config.volantis.yml</strong>中的<strong>sidebar</strong>项<strong>widget_library</strong>项中的avatar设置为<code>/images/rowlet.png</code>，这样就可以找到正确的文件路径了。然后就可以惊喜的发现，我的头像变成了一只可爱的木木枭！<img src="/images/rowlet.png" class="lazyload" data-srcset="/images/rowlet.png" srcset="data:image/png;base64,666" alt="木呼"></p>
+<h2 id="网站统计"><a href="#网站统计" class="headerlink" title="网站统计"></a>网站统计</h2><p>对于博客来说，我们可以统计一下网站的总访问量以及访问次数，Volantis很方便地集成了这些功能，只不过需要自己再手动配置一些选项才能正确使用。主页的“站点信息”widget，其中有一个选项<strong>visitcounter</strong>中的<strong>service</strong>，将这一项从<code>leancloud</code>改成<code>busuanzi</code>就可以使用不蒜子的网页统计功能了，十分方便，而如果要使用leancloud的话或许需要再申请之类的，我还是觉得不蒜子的更方便一些。</p>
+<p>当然，方便有方便的问题。在网页底部的相关信息也需要修改，这部分的配置文件在<strong>site_footer</strong>中的<strong>analytics</strong>中。这一部分的具体原理我没有太明白，因为默认使用的是leancloud的服务，所以显示数据与实际不符。我在F12检查网页源代码后，发现这一部分直接使用html代码进行配置，而两个span的id均是leancloud的id，于是我参考webbinfo中的设置，将spanid改成了busuanzi的形式，然后根据实际效果，将span内的字段移到了span外，这回似乎可以用了，如果你看到这里，可以将网页拉到最下面看一看，那里的统计数据是否正确加载，是否与首页的统计数据是否一致。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">本站总访问量为<span class="xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;busuanzi_value_site_pv&quot;</span>&gt;</span></span> <span class="xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&#x27;number&#x27;</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fas fa-circle-notch fa-spin fa-fw&quot;</span> <span class="attr">aria-hidden</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span> <span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span>次</span><br><span class="line">访客数为<span class="xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;busuanzi_value_site_uv&quot;</span>&gt;</span></span> <span class="xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&#x27;number&#x27;</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fas fa-circle-notch fa-spin fa-fw&quot;</span> <span class="attr">aria-hidden</span>=<span class="string">&quot;true&quot;</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span> <span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span>人 </span><br></pre></td></tr></table></figure>
+
 <h2 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h2><h3 id="文章中的注释"><a href="#文章中的注释" class="headerlink" title="文章中的注释"></a>文章中的注释</h3><p>在12月11日的版本中，我将写完的文章部署到GitHub上后，发现这篇文章的评论区以及侧边栏都没有正确加载出来，我开始是以为这是因为GitHub的网络延迟而导致的，可是在刷新了几遍之后问题依旧存在，这一个周末都没有怎么搞博客，也没有继续管这个问题。12月14日早晨，终于在调试了几次之后发现了玄机。<br>原来的文章中有一大段<strong>注释</strong>，本来是我想在之后写下来的内容，因为没有写完而被注释掉了，在我删除了这段注释之后在使用<code>hexo g &amp;&amp; hexo s</code>生成后，显示的页面就不再有问题了。</p>
 <p>但是，在我再次在文章的某一段落加上注释之后，同样的问题就不再生成了，所以可能也并不是注释引起的问题。。。😂</p>
 <p>整了一上午，终于整明白了，之后还可以再搞搞别的，比如文章作者，最后修改时间等问题。</p>
@@ -493,7 +497,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-15T13:49:46+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-15T14:48:54+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>最后更新于：2020年12月15日</p>
@@ -632,15 +636,12 @@ RUNOOB.COMGOOGLE.COMBAIDU.COM
     
       <div class='text'>
         
-          <h2>Ted Xu</h2>
+          <h2>🤟Ted Xu😏</h2>
         
         
           <p>有时候会用训练家的怀抱或包包代替巢穴。喜欢吃。</p>
 
         
-        
-          <p><span id="jinrishici-sentence">Ted Xu</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
         
       </div>
     
@@ -706,7 +707,7 @@ RUNOOB.COMGOOGLE.COMBAIDU.COM
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Volantis%E5%9B%BE%E6%A0%87%E8%AE%BE%E8%AE%A1"><span class="toc-text">Volantis图标设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Font-Awesome%E9%A2%84%E8%AE%BE%E5%9B%BE%E6%A0%87"><span class="toc-text">使用Font Awesome预设图标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9B%BE%E7%89%87%E4%BD%9C%E4%B8%BA%E5%9B%BE%E6%A0%87"><span class="toc-text">使用图片作为图标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98"><span class="toc-text">其他问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E4%B8%AD%E7%9A%84%E6%B3%A8%E9%87%8A"><span class="toc-text">文章中的注释</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Volantis%E5%9B%BE%E6%A0%87%E8%AE%BE%E8%AE%A1"><span class="toc-text">Volantis图标设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Font-Awesome%E9%A2%84%E8%AE%BE%E5%9B%BE%E6%A0%87"><span class="toc-text">使用Font Awesome预设图标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9B%BE%E7%89%87%E4%BD%9C%E4%B8%BA%E5%9B%BE%E6%A0%87"><span class="toc-text">使用图片作为图标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%AB%99%E7%BB%9F%E8%AE%A1"><span class="toc-text">网站统计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98"><span class="toc-text">其他问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E4%B8%AD%E7%9A%84%E6%B3%A8%E9%87%8A"><span class="toc-text">文章中的注释</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -806,7 +807,7 @@ RUNOOB.COMGOOGLE.COMBAIDU.COM
     
       
         
-          <div><p>本站总访问量为<span id="busuanzi_value_site_pv"> <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> </span>次 <span id="busuanzi_value_site_uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+          <div><p>本站总访问量为<span id="busuanzi_value_site_pv"> <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> </span>次 访客数为<span id="busuanzi_value_site_uv"> <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> </span>人</p>
 </div>
         
       
@@ -1175,7 +1176,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
 
 $('.input.u-search-input').one('focus',function(){
 	
-		loadScript('/js/search/hexo.js',setSearchService);
+		loadScript('https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@2.6.4/js/search.js',setSearchService);
 	
 })
 
