@@ -25,6 +25,8 @@
   
 
   
+    <meta name="description" content="这是我的Volantis主题设置学习日记，主要包括我在使用Volantis过程中遇到的疑难杂症以及一些细节问题。文中所有内容以Volantis官方文档为准。">
+  
 
   <!-- feed -->
   
@@ -327,7 +329,7 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper post dock' style="display: none;">
+        <div id="full" class='cover-wrapper post featured' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -351,13 +353,6 @@
               
               id="v4getting-started">
               <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg'><p>文档</p>
-            </a>
-          
-            <a href="/faqs/"
-              
-              
-              id="faqs">
-              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg'><p>帮助</p>
             </a>
           
             <a href="/examples/"
@@ -467,7 +462,9 @@
 
 
   
-  <h2 id="Volantis图标设计"><a href="#Volantis图标设计" class="headerlink" title="Volantis图标设计"></a>Volantis图标设计</h2><h3 id="使用Font-Awesome预设图标"><a href="#使用Font-Awesome预设图标" class="headerlink" title="使用Font Awesome预设图标"></a>使用Font Awesome预设图标</h3><p>在hexo-themes-volantis这个文件夹下的_config.yml中，我找到了Volantis主题配置的一些代码，其中，很多图标都是由<code>fas fa-envelope</code>或者<code>fas fa-envelope</code>显示的，比如在博客作者logo下显示的作者联系方式，微博推特等链接的图标：</p>
+  <p>这是我的Volantis主题设置学习日记，主要包括我在使用Volantis过程中遇到的疑难杂症以及一些细节问题。文中所有内容以<a target="_blank" rel="noopener" href="https://volantis.js.org/getting-started/">Volantis官方文档</a>为准。</p>
+<a id="more"></a>
+<h2 id="Volantis图标设计"><a href="#Volantis图标设计" class="headerlink" title="Volantis图标设计"></a>Volantis图标设计</h2><h3 id="使用Font-Awesome预设图标"><a href="#使用Font-Awesome预设图标" class="headerlink" title="使用Font Awesome预设图标"></a>使用Font Awesome预设图标</h3><p>在hexo-themes-volantis这个文件夹下的_config.yml中，我找到了Volantis主题配置的一些代码，其中，很多图标都是由<code>fas fa-envelope</code>或者<code>fas fa-envelope</code>显示的，比如在博客作者logo下显示的作者联系方式，微博推特等链接的图标：</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">social:</span><br><span class="line"><span class="bullet">        -</span> icon: fab fa-facebook</span><br><span class="line"><span class="code">          url: https://www.facebook.com/jingtong.xu.779</span></span><br><span class="line"><span class="code">        - icon: fas fa-envelope</span></span><br><span class="line"><span class="code">          url: mailto:xjt980408@163.com</span></span><br><span class="line"><span class="code">        - icon: fab fa-weixin</span></span><br><span class="line"><span class="code">          url: https://www.instagram.com/xjtcoco/</span></span><br><span class="line"><span class="code">        - icon: fab fa-instagram-square</span></span><br><span class="line"><span class="code">          url: https://www.instagram.com/xjtcoco/</span></span><br></pre></td></tr></table></figure>
 
 <p>最开始我完全不知道这些代码的意义，但经过一番搜索，终于在这些图标的名称这一点上找到了突破，这些图标都是由一个名为Font Awesome的图标网站设计的，而在每个index.html文件的头部，都会通过一个js函数导入这些图标。在<a target="_blank" rel="noopener" href="https://fa5.dashgame.com/#/%E5%9B%BE%E6%A0%87">Font Awesome官方网站</a>中，可以查到最新的Font Awesome图标的代码。而<a target="_blank" rel="noopener" href="http://www.fontawesome.com.cn/faicons/">Font Awesome中文网</a>也可以查到图标的种类（下面会说）。</p>
@@ -496,10 +493,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-14T08:45:58+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-15T13:49:46+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>最后更新于：2020年12月14日</p>
+    <p>最后更新于：2020年12月15日</p>
   </a>
 </div>
 
@@ -523,7 +520,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/12/11/Volantis%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/&title=Volantis主题设置学习日记 - Ted Xu&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/12/11/Volantis%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/&title=Volantis主题设置学习日记 - Ted Xu&summary=这是我的Volantis主题设置学习日记，主要包括我在使用Volantis过程中遇到的疑难杂症以及一些细节问题。文中所有内容以Volantis官方文档为准。"
           
           >
           
@@ -535,7 +532,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2020/12/11/Volantis%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/&title=Volantis主题设置学习日记 - Ted Xu&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2020/12/11/Volantis%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/&title=Volantis主题设置学习日记 - Ted Xu&summary=这是我的Volantis主题设置学习日记，主要包括我在使用Volantis过程中遇到的疑难杂症以及一些细节问题。文中所有内容以Volantis官方文档为准。"
           
           >
           
@@ -547,7 +544,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/12/11/Volantis%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/&title=Volantis主题设置学习日记 - Ted Xu&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/12/11/Volantis%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/&title=Volantis主题设置学习日记 - Ted Xu&summary=这是我的Volantis主题设置学习日记，主要包括我在使用Volantis过程中遇到的疑难杂症以及一些细节问题。文中所有内容以Volantis官方文档为准。"
           
           >
           
@@ -638,7 +635,7 @@ RUNOOB.COMGOOGLE.COMBAIDU.COM
           <h2>Ted Xu</h2>
         
         
-          <p>I love Rowlet!</p>
+          <p>在狭窄黑暗的地方会很平静。有时候也会用训练家的怀抱或包包代替巢穴。</p>
 
         
         
@@ -809,7 +806,7 @@ RUNOOB.COMGOOGLE.COMBAIDU.COM
     
       
         
-          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+          <div><p><span id="busuanzi_value_site_pv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="busuanzi_value_site_uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
 </div>
         
       
