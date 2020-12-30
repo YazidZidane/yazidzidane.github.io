@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -21,9 +19,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：动态规划 - Ted Xu</title>
+  <title>LeetCode1046 最后一块石头的重量 - Ted Xu</title>
+  
+    <meta name="keywords" content="LeetCode,最大堆">
   
 
+  
+    <meta name="description" content="使用priority_queue解决最大堆问题。">
   
 
   <!-- feed -->
@@ -327,7 +329,7 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  featured' style="display: none;">
+        <div id="full" class='cover-wrapper post featured' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -397,80 +399,218 @@
       <div class='body-wrapper' id="pjax-container">
         
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        LeetCode1046 最后一块石头的重量
+      </h1>
+      <div class='new-meta-box'>
         
           
+            
+<div class='new-meta-item author'>
+  <a class='author' href="" rel="nofollow">
+    <img no-lazy src="/images/rowlet.png">
+    <p>Ted</p>
+  </a>
+</div>
+
+          
         
-      
-    
-    
-      
+          
+            
+
+          
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/12/17/20201217-leetcode/">
-        LeetCode121 买卖股票的最佳时机
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/">121. 买卖股票的最佳时机</a></li>
-<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/">122. 买卖股票的最佳时机 II</a></li>
-<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/">309. 最佳买卖股票时机含冷冻期</a></li>
-<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/">714. 买卖股票的最佳时机含手续费</a></li>
-<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/">123. 买卖股票的最佳时机 III</a></li>
-<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/">188. 买卖股票的最佳时机 IV</a></li>
-<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/gu-piao-de-zui-da-li-run-lcof/">剑指 Offer 63. 股票的最大利润</a> (与121相同)</li>
-</ul>
-<p>我在LeetCode买股票之利益最大化。</p>
-    
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年12月30日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="LeetCode1046 最后一块石头的重量" data-path="/2020/12/30/20201230-leetcode/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-12-17</time>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  <p>使用priority_queue解决最大堆问题。</p>
+<a id="more"></a>
+
+<div class="note link green"><p>来源：力扣（LeetCode） 链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/last-stone-weight">https://leetcode-cn.com/problems/last-stone-weight</a> 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p></div>
+
+<h2 id="1046-最后一块石头的重量"><a href="#1046-最后一块石头的重量" class="headerlink" title="1046. 最后一块石头的重量"></a>1046. 最后一块石头的重量</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>有一堆石头，每块石头的重量都是正整数。</p>
+<p>每一回合，从中选出两块 最重的 石头，然后将它们一起粉碎。假设石头的重量分别为 <code>x</code> 和 <code>y</code>，且 <code>x &lt;= y</code>。那么粉碎的可能结果如下：</p>
+<ul>
+<li>如果 <code>x == y</code>，那么两块石头都会被完全粉碎；</li>
+<li>如果 <code>x != y</code>，那么重量为 <code>x</code> 的石头将会完全粉碎，而重量为 <code>y</code> 的石头新重量为 <code>y-x</code>。<br>最后，最多只会剩下一块石头。返回此石头的重量。如果没有石头剩下，就返回 <code>0</code>。</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：[2,7,4,1,8,1]</span><br><span class="line">输出：1</span><br><span class="line">解释：</span><br><span class="line">    先选出 7 和 8，得到 1，所以数组转换为 [2,4,1,1,1]，</span><br><span class="line">    再选出 2 和 4，得到 2，所以数组转换为 [2,1,1,1]，</span><br><span class="line">    接着是 2 和 1，得到 1，所以数组转换为 [1,1,1]，</span><br><span class="line">    最后选出 1 和 1，得到 0，最终数组转换为 [1]，这就是最后剩下那块石头的重量。</span><br></pre></td></tr></table></figure>
+
+<h3 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h3><p>这道题读完题后感觉并不是太难，只要对这堆石头，每次找出最大的两块然后敲碎，全部丢掉或者留下一块小石头继续就行了。可是我却很难想到一个高效的方法来解决这个问题。如果要使用一个有效的数据结构，那么这个结构要能保存一个按大小排列的数组，并在每次取出最大的两个数后，将可能剩下的一个数插入数组，并保持数组的有序性。如果每次都使用一次排序的话未免太复杂了些，如果使用之前刚刚学过的单调栈，又不能在敲碎两块石头后有效的处理剩下的一块石头。队列和栈看起来也不好处理这个问题。无奈之下只好再次求助答案，结果看到了“最大堆”这个说法，恍然大悟！</p>
+<p>其实堆很久以前数据结构就学过，大致记得是一个以二叉树形式存储数据，使所有数据满足“父节点的数值大于子节点数值”的一个数据结构。在学排序的时候还学过堆排序，应该就是先构建一个堆，然后就很好排序了。不过说实话我早就忘记了怎么实现这个数据结构，<strong>看来之后还要好好复习一下</strong>。。。。。。不过我也不记得STL里面专门有heap这种类型的数据结构，所以虽然知道了大概的方法，但还是写不出来😂</p>
+<p>又瞟了一眼别人答案的代码，一眼看到了一个奇怪的东西priority_queue，我寻思队列怎么跟堆也扯不上关系，为啥这个优先队列就行呢？结果一看优先队列的使用方式才发现，这个“优先”正是通过堆来实现的！</p>
+<p>优先队列priority_queue通过与普通queue不同的地方就在于，队列中的数据优先级可以定义，并自动根据优先级排队，按照优先级顺序出队。其余入队、出队的方式就与queue一样了。底层由一个堆实现，默认是按照<strong>大顶堆</strong>来实现的，也就是说，大的元素在最顶端。于是在这道题中，就可以将所有石块加入这个优先队列，这样他们就会自动按照从大到小的顺序排序，并在每次更新，加入新的石块时仍然保持排序不变。</p>
+<p>按照概念自己瞎写了个代码，最终正确通过了，看来以后还是在刷题的同时要好好学习和复习数据结构方面的知识。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lastStoneWeight</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; stones)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">priority_queue</span>&lt;<span class="keyword">int</span>&gt;heap;</span><br><span class="line">        <span class="comment">// int stone = stones.size();</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stones.size(); i++) &#123;</span><br><span class="line">            heap.push(stones[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (heap.size() &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> x = heap.top();</span><br><span class="line">            heap.pop();</span><br><span class="line">            <span class="keyword">int</span> y = heap.top();</span><br><span class="line">            heap.pop();</span><br><span class="line">            <span class="keyword">if</span> (x == y) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                heap.push(x - y);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!heap.empty()) <span class="keyword">return</span> heap.top();</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2020/12/17/20201217-leetcode/'>
-            阅读全文
-          </a>
-        </div>
+      
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-30T10:47:10+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>最后更新于：2020年12月30日</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
-    
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/LeetCode/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>LeetCode</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%9C%80%E5%A4%A7%E5%A0%86/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>最大堆</p></a></div>
 
 
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/12/30/20201230-leetcode/&title=LeetCode1046 最后一块石头的重量 - Ted Xu&summary=使用priority_queue解决最大堆问题。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2020/12/30/20201230-leetcode/&title=LeetCode1046 最后一块石头的重量 - Ted Xu&summary=使用priority_queue解决最大堆问题。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/12/30/20201230-leetcode/&title=LeetCode1046 最后一块石头的重量 - Ted Xu&summary=使用priority_queue解决最大堆问题。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
   
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2020/12/25/20201225-leetcode/'>
+          <p class='title'>LeetCode739 每日温度<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>第一次学习使用神奇的单调栈方法解每日温度问题。
+
+
+739. 每日温度题目描述请根据每日 气温 列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -549,160 +689,28 @@
     
     
 
-  
 
-  
-    
-    
-  
 
-  <section class="widget tagcloud shadow floatable desktop mobile">
+  <section class="widget toc-wrapper shadow floatable desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <a href="/tags/LeetCode/" style="font-size: 24px; color: #555">LeetCode</a> <a href="/tags/Volantis/" style="font-size: 14px; color: #999">Volantis</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 14px; color: #999">二叉树</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 14px; color: #999">动态规划</a> <a href="/tags/%E5%8D%95%E8%B0%83%E6%A0%88/" style="font-size: 14px; color: #999">单调栈</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 14px; color: #999">开发</a> <a href="/tags/%E6%9C%80%E5%A4%A7%E5%A0%86/" style="font-size: 14px; color: #999">最大堆</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 19px; color: #777">随笔</a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1046-%E6%9C%80%E5%90%8E%E4%B8%80%E5%9D%97%E7%9F%B3%E5%A4%B4%E7%9A%84%E9%87%8D%E9%87%8F"><span class="toc-text">1046. 最后一块石头的重量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90"><span class="toc-text">题目解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a></li></ol></li></ol>
     </div>
   </section>
 
 
   
 
-  
-    
-    
-
-<section class="widget shadow floatable desktop">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>10 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2020/12/10'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-        <div class="webinfo-item">
-          <div>本站总字数：</div>
-          <div>10.5k 字</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="busuanzi_value_site_uv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="busuanzi_value_site_pv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Wed Dec 30 2020 10:48:54 GMT+0800 (GMT+08:00)</div>
-            <div id="last-update-show">2020-12-30 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2020-12-30 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
-
-  
-
 
 </aside>
+
 
 
         
@@ -712,8 +720,8 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="LeetCode1046 最后一块石头的重量";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
