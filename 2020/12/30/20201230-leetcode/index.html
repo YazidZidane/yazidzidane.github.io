@@ -478,8 +478,8 @@
 
 <h3 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h3><p>这道题读完题后感觉并不是太难，只要对这堆石头，每次找出最大的两块然后敲碎，全部丢掉或者留下一块小石头继续就行了。可是我却很难想到一个高效的方法来解决这个问题。如果要使用一个有效的数据结构，那么这个结构要能保存一个按大小排列的数组，并在每次取出最大的两个数后，将可能剩下的一个数插入数组，并保持数组的有序性。如果每次都使用一次排序的话未免太复杂了些，如果使用之前刚刚学过的单调栈，又不能在敲碎两块石头后有效的处理剩下的一块石头。队列和栈看起来也不好处理这个问题。无奈之下只好再次求助答案，结果看到了“最大堆”这个说法，恍然大悟！</p>
 <p>其实堆很久以前数据结构就学过，大致记得是一个以二叉树形式存储数据，使所有数据满足“父节点的数值大于子节点数值”的一个数据结构。在学排序的时候还学过堆排序，应该就是先构建一个堆，然后就很好排序了。不过说实话我早就忘记了怎么实现这个数据结构，<strong>看来之后还要好好复习一下</strong>。。。。。。不过我也不记得STL里面专门有heap这种类型的数据结构，所以虽然知道了大概的方法，但还是写不出来😂</p>
-<p>又瞟了一眼别人答案的代码，一眼看到了一个奇怪的东西priority_queue，我寻思队列怎么跟堆也扯不上关系，为啥这个优先队列就行呢？结果一看优先队列的使用方式才发现，这个“优先”正是通过堆来实现的！</p>
-<p>优先队列priority_queue通过与普通queue不同的地方就在于，队列中的数据优先级可以定义，并自动根据优先级排队，按照优先级顺序出队。其余入队、出队的方式就与queue一样了。底层由一个堆实现，默认是按照<strong>大顶堆</strong>来实现的，也就是说，大的元素在最顶端。于是在这道题中，就可以将所有石块加入这个优先队列，这样他们就会自动按照从大到小的顺序排序，并在每次更新，加入新的石块时仍然保持排序不变。</p>
+<p>又瞟了一眼别人答案的代码，一眼看到了一个奇怪的东西<code>priority_queue</code>，我寻思队列怎么跟堆也扯不上关系，为啥这个优先队列就行呢？结果一看优先队列的使用方式才发现，这个“优先”正是通过堆来实现的！</p>
+<p>优先队列<code>priority_queue</code>通过与普通<code>queue</code>不同的地方就在于，队列中的数据优先级可以定义，并自动根据优先级排队，按照优先级顺序出队。其余入队、出队的方式就与<code>queue</code>一样了。底层由一个堆实现，默认是按照<strong>大根堆</strong>来实现的，也就是说，大的元素在最顶端。于是在这道题中，就可以将所有石块加入这个优先队列，这样他们就会自动按照从大到小的顺序排序，并在每次更新，加入新的石块时仍然保持排序不变。</p>
 <p>按照概念自己瞎写了个代码，最终正确通过了，看来以后还是在刷题的同时要好好学习和复习数据结构方面的知识。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lastStoneWeight</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; stones)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">priority_queue</span>&lt;<span class="keyword">int</span>&gt;heap;</span><br><span class="line">        <span class="comment">// int stone = stones.size();</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stones.size(); i++) &#123;</span><br><span class="line">            heap.push(stones[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (heap.size() &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> x = heap.top();</span><br><span class="line">            heap.pop();</span><br><span class="line">            <span class="keyword">int</span> y = heap.top();</span><br><span class="line">            heap.pop();</span><br><span class="line">            <span class="keyword">if</span> (x == y) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                heap.push(x - y);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!heap.empty()) <span class="keyword">return</span> heap.top();</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
   
@@ -500,7 +500,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-30T10:47:10+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-30T10:50:01+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>最后更新于：2020年12月30日</p>
@@ -580,6 +580,14 @@
 
   
     <div class="prev-next">
+      
+        <a class='prev' href='/2020/12/31/20201231-leetcode/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>LeetCode435 无重叠区间</p>
+          <p class='content'>435. 无重叠区间452. 用最少数量的箭引爆气球使用贪心算法解决区间问题。
+
+
+来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/non...</p>
+        </a>
       
       
         <a class='next' href='/2020/12/25/20201225-leetcode/'>

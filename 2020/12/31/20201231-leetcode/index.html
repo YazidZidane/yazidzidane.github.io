@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -21,9 +19,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：Volantis - Ted Xu</title>
+  <title>LeetCode435 无重叠区间 - Ted Xu</title>
+  
+    <meta name="keywords" content="LeetCode,贪心算法">
   
 
+  
+    <meta name="description" content="435. 无重叠区间452. 用最少数量的箭引爆气球使用贪心算法解决区间问题。">
   
 
   <!-- feed -->
@@ -327,7 +329,7 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  featured' style="display: none;">
+        <div id="full" class='cover-wrapper post featured' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -397,71 +399,238 @@
       <div class='body-wrapper' id="pjax-container">
         
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        LeetCode435 无重叠区间
+      </h1>
+      <div class='new-meta-box'>
         
           
+            
+<div class='new-meta-item author'>
+  <a class='author' href="" rel="nofollow">
+    <img no-lazy src="/images/rowlet.png">
+    <p>Ted</p>
+  </a>
+</div>
+
+          
         
-      
-    
-    
-      
+          
+            
+
+          
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/12/11/Volantis%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">
-        Volantis主题设置学习日记
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>这是我的Volantis主题设置学习日记，主要包括我在使用Volantis过程中遇到的疑难杂症以及一些细节问题。文中所有内容以<a target="_blank" rel="noopener" href="https://volantis.js.org/getting-started/">Volantis官方文档</a>为准。</p>
-    
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年12月31日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="LeetCode435 无重叠区间" data-path="/2020/12/31/20201231-leetcode/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-12-11</time>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/non-overlapping-intervals/">435. 无重叠区间</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-number-of-arrows-to-burst-balloons/">452. 用最少数量的箭引爆气球</a><br>使用贪心算法解决区间问题。</p>
+<a id="more"></a>
+
+<div class="note link green"><p>来源：力扣（LeetCode） 链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/non-overlapping-intervals/">https://leetcode-cn.com/problems/non-overlapping-intervals/</a> 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p></div>
+
+<h2 id="435-无重叠区间"><a href="#435-无重叠区间" class="headerlink" title="435. 无重叠区间"></a>435. 无重叠区间</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个区间的集合，找到需要移除区间的最小数量，使剩余区间互不重叠。</p>
+<p><strong>注意:</strong></p>
+<ul>
+<li>可以认为区间的终点总是大于它的起点。</li>
+<li>区间 [1,2] 和 [2,3] 的边界相互“接触”，但没有相互重叠。</li>
+</ul>
+<p><strong>示例 1:</strong></p>
+<div class="note "><p><strong>输入</strong>: [[1,2],[2,3],[3,4],[1,3]] <br> <strong>输出</strong>: 1 <br> <strong>解释</strong>: 移除 [1,3] 后，剩下的区间没有重叠。</p></div>
+
+<h3 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h3><p>这道题看上去感觉还行，我第一时间想到的就是把区间看成一个一个的槽，让每个槽里只有一个元素，但这样过于抽象，不好实现。后来又想了想，觉得应该用排序，先将所有的区间按照区间开始位置进行排序，然后使用贪心算法，删除每一对相互重叠的两个区间中较大的一个。后来想了想，应该删除<strong>区间结束位置最大的一个</strong>。</p>
+<p>这道题对我来说难点在于判断<strong>如何使用贪心算法</strong>，这里不太好想一个证明方法，我直接复制了LeetCode上的证明：</p>
+<div class="note link green"><p>我们不妨想一想应该选择哪一个区间作为首个区间。 <br> 假设在某一种<strong>最优</strong>的选择方法中，[lk,rk] 是首个（即最左侧的）区间，那么它的左侧没有其它区间，右侧有若干个不重叠的区间。设想一下，如果此时存在一个区间 [lj,rj]，使得 rj &lt; rk ，即区间 j 的右端点在区间 k 的左侧，那么我们将区间 k 替换为区间 j，其与剩余右侧被选择的区间仍然是不重叠的。而当我们将区间 k 替换为区间 j 后，就得到了<strong>另一种最优</strong>的选择方法。</p></div>
+
+<p>有了证明后，程序实现的方法就很好想了，可以使用双指针的方法，一个指针指向当前节点，另一个指针指向下一个节点，然后判断两个节点所在的区间是否重叠。这里可以直接比较第一个区间的结尾与第二个区间的开始的大小，如果两个区间重叠，那么应该有<strong>后面的区间的开始位置&lt;前面区间的结束位置</strong>。然后删除结束位置最大的节点，其实在实现时也并不需要真的删除节点，只要移动<code>next</code>指针就可以了。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">eraseOverlapIntervals</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; intervals)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> mincount = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//首先对区间数组按照区间开始的位置进行排序</span></span><br><span class="line">        sort(intervals.begin(), intervals.end());</span><br><span class="line">        <span class="comment">//双指针</span></span><br><span class="line">        <span class="keyword">int</span> curr = <span class="number">0</span>, next = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (next &lt; intervals.size()) &#123;</span><br><span class="line">            <span class="comment">//如果后面的区间的开始位置&lt;前面区间的结束位置， 说明两区间有重叠</span></span><br><span class="line">            <span class="keyword">if</span> (intervals[curr][<span class="number">1</span>] &gt; intervals[next][<span class="number">0</span>]) &#123;</span><br><span class="line">                mincount++;</span><br><span class="line">                <span class="comment">//比较两区间结束位置，删除结束位置最大的</span></span><br><span class="line">                intervals[curr][<span class="number">1</span>] &gt; intervals[next][<span class="number">1</span>] ? curr = next : curr = curr ;</span><br><span class="line">                next++;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//两区间不重叠，双指针向前移动</span></span><br><span class="line">                curr = next;</span><br><span class="line">                next++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> mincount;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>另外我在代码中遇到的错误就是忘记将<code>curr</code>设置为<code>next</code>的值，而是直接<code>curr++</code>，这样将导致<code>curr</code>移动到已经删除的节点上。</p>
+<h2 id="452-用最少数量的箭引爆气球"><a href="#452-用最少数量的箭引爆气球" class="headerlink" title="452. 用最少数量的箭引爆气球"></a>452. 用最少数量的箭引爆气球</h2><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>这道题的题干太长了而且描述的非常弱智，懒得在这抄了，直接放链接：</p>
+<div class="note link green"><p>来源：力扣（LeetCode） 链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-number-of-arrows-to-burst-balloons">https://leetcode-cn.com/problems/minimum-number-of-arrows-to-burst-balloons</a> 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p></div>
+
+<p><strong>示例 1：</strong></p>
+<div class="note "><p><strong>输入</strong>：points = [[10,16],[2,8],[1,6],[7,12]] <br> <strong>输出</strong>：2 <br> <strong>解释</strong>：对于该样例，x = 6 可以射爆 [2,8],[1,6] 两个气球，以及 x = 11 射爆另外两个气球</p></div>
+
+<p><strong>示例 2：</strong></p>
+<div class="note "><p><strong>输入：</strong>points = [[1,2],[3,4],[5,6],[7,8]] <br> <strong>输出：</strong>4</p></div>
+
+<h3 id="题目解析-1"><a href="#题目解析-1" class="headerlink" title="题目解析"></a>题目解析</h3><p>这道题跟上面一道题类似，都是要找到区间数组中的重叠区间，但这题对于重叠区间进行了限制，即要求所有的重叠区间全部包含一个值/区间，如果我们把这些区间纵向排列，可以想象成用一根箭贯穿他们或是用一根棍把它们串起来。一开始我也想使用与上一题类似的排序+双指针方法直接求解，可这回我发现答案却错误了，具体错误如下：</p>
+<div class="note "><p>输入：[[9,12],[1,10],[4,11],[8,12],[3,9],[6,9],[6,7]] <br> 输出：1 <br> 预期：2</p></div>
+
+<p>可以发现，代码虽然可以通过题目示例里的几个测试用例，但是却不能通过这个用例，这是因为，除去输入数组的第一项<code>[9,12]</code>以外，其他的数组都可以覆盖一个区间<code>[6,7]</code>，而区间<code>[9,12]</code>显然不包含这一区间。我们在上一题中通过判断前一区间的右端点和下一区间的左端点的大小，来判断两个区间是否相互覆盖。但这题中我们就需要动态地修改右端点的大小，保证所有相互覆盖的区间都能覆盖到一个相同的区间，即“用一颗子弹贯穿这些区间”。</p>
+<p>于是在第一份代码中，我们使用了<code>r</code>来表示当前区间的最右端点，并在每一次遍历到新的区间时动态修改<code>r</code>，保证所有的当前区间均能被一颗子弹贯穿。值得注意的是，每次遍历完一个这样的区间集合时，也就是在<code>else</code>中才将<code>arrows</code>加一，这样在最后一次遍历后<code>arrows</code>会少<code>1</code>，所以在最后返回<code>arrows+1</code>。</p>
+<p>而在参考答案写出的第二份代码中，由于本题中判断区间是否可被子弹打穿，主要依据的是每一个区间的右端点值，因此可以使用一种贪心的思想，每次将子弹射入的位置设定为拥有最小右端点的区间的右端点值。于是我们可以将区间按照右端点大小进行排序，这里使用了C++中的<strong>lambda表达式</strong>方法，这个方法我还不是太熟悉，<strong>具体如何使用之后应该再了解一下</strong>。总之，将所有区间排序后，我们将最小的右端点设定为子弹射入的位置，并依旧向下遍历判断下一个区间的左端点，与当前射入位置的大小，这样就可以判断子弹是否能一次贯穿这两个区间了。</p>
+<p>这个方法相比于最开始的代码，主要是在判断上节省了判断次数，因此消耗的时间也要明显少一些。</p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findMinArrowShots</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; points)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!points.size()) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> arrows = <span class="number">0</span>;</span><br><span class="line">        sort(points.begin(), points.end());</span><br><span class="line">        <span class="keyword">int</span> curr = <span class="number">0</span>, next = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> r = points[<span class="number">0</span>][<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">while</span> (next &lt; points.size()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (points[next][<span class="number">0</span>] &lt;= r) &#123;</span><br><span class="line">                r = r &gt;= points[next][<span class="number">1</span>] ? points[next][<span class="number">1</span>] : r;    </span><br><span class="line">                next++;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                curr = next;</span><br><span class="line">                r = points[curr][<span class="number">1</span>];</span><br><span class="line">                next++;</span><br><span class="line">                arrows++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> arrows + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findMinArrowShots</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; points)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!points.size()) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> arrows = <span class="number">1</span>;</span><br><span class="line">        sort(points.begin(), points.end(), [](<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; u, <span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; v) &#123;</span><br><span class="line">            <span class="keyword">return</span> u[<span class="number">1</span>] &lt; v[<span class="number">1</span>];</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">int</span> pos = points[<span class="number">0</span>][<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; points.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (points[i][<span class="number">0</span>] &lt;= pos) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                pos = points[i][<span class="number">1</span>];</span><br><span class="line">                arrows++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> arrows;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2020/12/11/Volantis%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/'>
-            阅读全文
-          </a>
-        </div>
+      
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-31T13:31:54+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>最后更新于：2020年12月31日</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
-    
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/LeetCode/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>LeetCode</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>贪心算法</p></a></div>
 
 
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2020/12/31/20201231-leetcode/&title=LeetCode435 无重叠区间 - Ted Xu&summary=435. 无重叠区间452. 用最少数量的箭引爆气球使用贪心算法解决区间问题。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2020/12/31/20201231-leetcode/&title=LeetCode435 无重叠区间 - Ted Xu&summary=435. 无重叠区间452. 用最少数量的箭引爆气球使用贪心算法解决区间问题。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2020/12/31/20201231-leetcode/&title=LeetCode435 无重叠区间 - Ted Xu&summary=435. 无重叠区间452. 用最少数量的箭引爆气球使用贪心算法解决区间问题。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
   
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2020/12/30/20201230-leetcode/'>
+          <p class='title'>LeetCode1046 最后一块石头的重量<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>使用priority_queue解决最大堆问题。
+
+
+来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/last-stone-weight ...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -540,160 +709,28 @@
     
     
 
-  
 
-  
-    
-    
-  
 
-  <section class="widget tagcloud shadow floatable desktop mobile">
+  <section class="widget toc-wrapper shadow floatable desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <a href="/tags/LeetCode/" style="font-size: 24px; color: #555">LeetCode</a> <a href="/tags/Volantis/" style="font-size: 14px; color: #999">Volantis</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 14px; color: #999">二叉树</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 14px; color: #999">动态规划</a> <a href="/tags/%E5%8D%95%E8%B0%83%E6%A0%88/" style="font-size: 14px; color: #999">单调栈</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 14px; color: #999">开发</a> <a href="/tags/%E6%9C%80%E5%A4%A7%E5%A0%86/" style="font-size: 14px; color: #999">最大堆</a> <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">贪心算法</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 19px; color: #777">随笔</a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#435-%E6%97%A0%E9%87%8D%E5%8F%A0%E5%8C%BA%E9%97%B4"><span class="toc-text">435. 无重叠区间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90"><span class="toc-text">题目解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#452-%E7%94%A8%E6%9C%80%E5%B0%91%E6%95%B0%E9%87%8F%E7%9A%84%E7%AE%AD%E5%BC%95%E7%88%86%E6%B0%94%E7%90%83"><span class="toc-text">452. 用最少数量的箭引爆气球</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-1"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90-1"><span class="toc-text">题目解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="toc-text">代码</span></a></li></ol></li></ol>
     </div>
   </section>
 
 
   
 
-  
-    
-    
-
-<section class="widget shadow floatable desktop">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>11 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2020/12/10'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-        <div class="webinfo-item">
-          <div>本站总字数：</div>
-          <div>12.5k 字</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="busuanzi_value_site_uv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="busuanzi_value_site_pv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Thu Dec 31 2020 13:32:03 GMT+0800 (GMT+08:00)</div>
-            <div id="last-update-show">2020-12-31 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2020-12-31 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
-
-  
-
 
 </aside>
+
 
 
         
@@ -703,8 +740,8 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="LeetCode435 无重叠区间";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
