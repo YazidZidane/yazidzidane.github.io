@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>画饼</title>
+      <link href="2021/03/06/20210306/"/>
+      <url>2021/03/06/20210306/</url>
+      
+        <content type="html"><![CDATA[<p>最近学习生活繁忙，先画一些大饼，能不能完成以后再说。。。ヽ(。&gt;д&lt;)ｐ</p><a id="more"></a><h3 id="LeetCode生成题解md脚本"><a href="#LeetCode生成题解md脚本" class="headerlink" title="LeetCode生成题解md脚本"></a>LeetCode生成题解md脚本</h3><p>经历了大概两个月的摸鱼，最近终于又重新开始搞LeetCode了，其实之前一直想整一个可以自动生成题解的框架，就像我之前的一些文章一样自动生成题目链接，题目简介，示例输入输出，甚至代码这样的脚本。其实实现起来应该并不难，只需要做一个爬虫就好了，然后解析一下网页把相关的内容粘下来，不过由于懒一直都没有做。。。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 随笔 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LeetCode435 无重叠区间</title>
       <link href="2020/12/31/20201231-leetcode/"/>
       <url>2020/12/31/20201231-leetcode/</url>
