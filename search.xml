@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>HTTP与HTTPS，一些关键地方的理解</title>
+      <link href="2021/04/07/20210407/"/>
+      <url>2021/04/07/20210407/</url>
+      
+        <content type="html"><![CDATA[<p>最近在面试中被问到了HTTP与HTTPS的一些问题，今天稍微学习了一下HTTP与HTTPS，在这里整理一下一些重要地方的理解。</p><a id="more"></a><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><strong>HTTP基础：</strong><br><a href="https://juejin.cn/post/6844903592965439501#heading-13">面试带你飞：这是一份全面的 计算机网络基础 总结攻略</a><br><a href="https://www.jianshu.com/p/a6d086a3997d">计算机网络：这是一份全面&amp; 详细 HTTP知识讲解</a><br><strong>HTTP与HTTPS:</strong><br><a href="https://juejin.cn/post/6844903608421449742">看图学HTTPS</a><br><a href="https://zhuanlan.zhihu.com/p/96494976">你知道，HTTPS用的是对称加密还是非对称加密？</a><br><a href="http://www.52im.net/thread-2027-1-1.html">一分钟理解 HTTPS 到底解决了什么问题</a><br>主要对于证书与数字签名一些理解来自于这篇博客：<br><a href="http://www.52im.net/thread-1890-1-1.html">即时通讯安全篇（七）：如果这样来理解HTTPS，一篇就够了</a></p><h2 id="HTTP与HTTPS的区别"><a href="#HTTP与HTTPS的区别" class="headerlink" title="HTTP与HTTPS的区别"></a>HTTP与HTTPS的区别</h2><p><img src="https://upload-images.jianshu.io/upload_images/944365-820f955afd57185f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/712/format/webp" class="lazyload" data-srcset="https://upload-images.jianshu.io/upload_images/944365-820f955afd57185f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/712/format/webp" srcset="data:image/png;base64,666" alt="区别"></p><h2 id="对称加密与非对称加密"><a href="#对称加密与非对称加密" class="headerlink" title="对称加密与非对称加密"></a>对称加密与非对称加密</h2><p>加密和解密用同一个秘钥的加密方式叫做<strong>对称加密</strong>。对于对称加密来说，服务器与客户端使用相同的加密方式，但是对于多个客户的系统来说，如果都采用同样的加密方式，那么一旦攻击者对于加密方式进行了破解，那么所有用户都将处于风险下。如果对不同用户使用不同方式进行加密，那么如果攻击者也对于加密方法进行拦截并破解，那么依然可能使用户暴露于安全风险下。</p><p>这时我们可以采用非对称加密的方法。 非对称加密会有一对秘钥：<strong>公钥和私钥</strong>。 <strong>公钥加密的内容，只有私钥可以解开，私钥加密的内容，所有的公钥都可以解开（当然是指和秘钥是一对的公钥）。</strong> 私钥只在服务器端且不公开，而公钥面向用户公开。<strong>这样，至少可以保证用户通过公钥加密的内容无法被攻击者破解（必须要拥有私钥才能解密）。</strong></p><p>当然，这样依然会存在问题，公钥可能被中间人拿到篡改，偷偷换成他自己的公钥，这样客户使用假的公钥加密的内容将被中间人的私钥破解，然后肆意篡改。<br><img src="https://user-gold-cdn.xitu.io/2018/5/21/1638197d56d46dc7?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" class="lazyload" data-srcset="https://user-gold-cdn.xitu.io/2018/5/21/1638197d56d46dc7?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" srcset="data:image/png;base64,666" alt="示意图"></p><p>公钥被掉包，是因为客户端无法分辨传回公钥的到底是中间人，还是服务器，这也是密码学中的身份验证问题。这样，我们就可以引入<strong>证书+数字签名</strong>的方法来解决这样的问题。</p><h2 id="证书与数字签名"><a href="#证书与数字签名" class="headerlink" title="证书与数字签名"></a>证书与数字签名</h2><p>服务器可以通过第三方认证机构，可以让第三方机构对自己的公钥进行加密，然后将加密后的公钥发放给客户。那么，客户如何确定自己收到的第三方加密证书是真正的服务器发来的证书，而不是中间人自己通过向第三方机构申请获得的伪造证书呢？原来，在数字证书上还附有数字签名这一东西，用参考博客里的一句原话举例：</p><p>我们从现实中找灵感。比如你是HR，你手上拿到候选人的学历证书，证书上写了持证人，颁发机构，颁发时间等等，同时证书上，还写有一个最重要的：证书编号！我们怎么鉴别这张证书是的真伪呢？只要拿着这个证书编号上相关机构去查，如果证书上的持证人与现实的这个候选人一致，同时证书编号也能对应上，那么就说明这个证书是真实的。</p><p>现实中，浏览器和操作系统都会维护一个权威的第三方机构列表（包括它们的公钥）。因为客户端接收到的证书中会写有颁发机构，客户端就根据这个颁发机构的值在本地找相应的公钥。并用公钥对证书上的内容进行解密，比对数字签名。由于数字签名这一东西是由服务端向第三方机构申请，并<strong>通过第三方机构私钥产生的</strong>，因此中间人不能伪造数字签名，以假装自己是真正的服务端，<strong>如果中间人使用了自己申请的伪造证书，那么在客户端对于证书内容解密后，会出现验证签名不匹配的情况，这样客户端就会提醒用户可能存在的安全风险了。</strong></p><h2 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h2><p>由于使用了数字证书，加密解密这样的方法，导致HTTPS相比于普通的HTTP要慢得多，但是只有支持了 HTTPS，才能部署 HTTP/2，而 HTTP/2 协议会提升速度，能够有效减轻客户端和服务器端的压力，让响应更快速。这一点就要联系到HTTP不同版本之前的区别，以及HTTP的历史了。</p><p><img src="https://pic4.zhimg.com/80/v2-1ea0209a526f3527a713736fe7609fcf_720w.jpg" class="lazyload" data-srcset="https://pic4.zhimg.com/80/v2-1ea0209a526f3527a713736fe7609fcf_720w.jpg" srcset="data:image/png;base64,666" alt="HTTPS的整体实现过程"><br>这张图片中显示的HTTPS在进行证书验证之后，客户端与服务端直接使用了对称加密的方法进行了数据传输，但是依然使用了公钥和私钥进行了加密解密，这一点我没有太搞懂，另外SSL和TLS这些名词的含义也还没有整明白，明天再看看吧。。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 计算机网络 </tag>
+            
+            <tag> HTTP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>画饼</title>
       <link href="2021/03/06/20210306/"/>
       <url>2021/03/06/20210306/</url>
