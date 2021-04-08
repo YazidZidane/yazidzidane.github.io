@@ -473,8 +473,18 @@
 <h2 id="证书与数字签名"><a href="#证书与数字签名" class="headerlink" title="证书与数字签名"></a>证书与数字签名</h2><p>服务器可以通过第三方认证机构，可以让第三方机构对自己的公钥进行加密，然后将加密后的公钥发放给客户。那么，客户如何确定自己收到的第三方加密证书是真正的服务器发来的证书，而不是中间人自己通过向第三方机构申请获得的伪造证书呢？原来，在数字证书上还附有数字签名这一东西，用参考博客里的一句原话举例：</p>
 <p>我们从现实中找灵感。比如你是HR，你手上拿到候选人的学历证书，证书上写了持证人，颁发机构，颁发时间等等，同时证书上，还写有一个最重要的：证书编号！我们怎么鉴别这张证书是的真伪呢？只要拿着这个证书编号上相关机构去查，如果证书上的持证人与现实的这个候选人一致，同时证书编号也能对应上，那么就说明这个证书是真实的。</p>
 <p>现实中，浏览器和操作系统都会维护一个权威的第三方机构列表（包括它们的公钥）。因为客户端接收到的证书中会写有颁发机构，客户端就根据这个颁发机构的值在本地找相应的公钥。并用公钥对证书上的内容进行解密，比对数字签名。由于数字签名这一东西是由服务端向第三方机构申请，并<strong>通过第三方机构私钥产生的</strong>，因此中间人不能伪造数字签名，以假装自己是真正的服务端，<strong>如果中间人使用了自己申请的伪造证书，那么在客户端对于证书内容解密后，会出现验证签名不匹配的情况，这样客户端就会提醒用户可能存在的安全风险了。</strong></p>
+<h2 id="SSL与TLS"><a href="#SSL与TLS" class="headerlink" title="SSL与TLS"></a>SSL与TLS</h2><p>以下内容参考自：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903599303032845">分分钟让你理解HTTPS</a></p>
+<div class="note link green"><p>作者：Keely40285 链接：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903599303032845">https://juejin.cn/post/6844903599303032845</a> 来源：掘金 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p></div>
+
+<p>HTTPS是在通信接口部分用 TLS(Transport Layer Security 传输层安全性协议)，TLS协议采用主从式架构模型，用于在两个应用程序间通过网络创建起安全的连接，防止在交换数据时受到窃听及篡改。<br><img src="https://user-gold-cdn.xitu.io/2018/4/16/162cd3df803538f6?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" class="lazyload" data-srcset="https://user-gold-cdn.xitu.io/2018/4/16/162cd3df803538f6?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" srcset="data:image/png;base64,666" alt="图片"></p>
+<h3 id="SSL和TLS的关系"><a href="#SSL和TLS的关系" class="headerlink" title="SSL和TLS的关系"></a>SSL和TLS的关系</h3><p>传输层安全性协议（英语：Transport Layer Security，缩写作 TLS），及其前身安全套接层（Secure Sockets Layer，缩写作 SSL）是一种安全协议，目的是为互联网通信，提供安全及数据完整性保障。</p>
+<p>网景公司（Netscape）在1994年推出首版网页浏览器，网景导航者时，推出HTTPS协议，以SSL进行加密，这是SSL的起源。<br>IETF将SSL进行标准化，1999年公布第一版TLS标准文件。随后又公布RFC 5246 （2008年8月）与 RFC 6176 （2011年3月）。在浏览器、电子邮件、即时通信、VoIP、网络传真等应用程序中，广泛支持这个协议。</p>
+<h3 id="TLS-SSL-协议"><a href="#TLS-SSL-协议" class="headerlink" title="TLS/SSL 协议"></a>TLS/SSL 协议</h3><p>HTTPS 协议的主要功能基本都依赖于 TLS/SSL 协议，TLS/SSL 的功能实现主要依赖于三类基本算法：<emp>散列函数、对称加密和非对称加密</emp>，其利用非对称加密实现身份认证和密钥协商，对称加密算法采用协商的密钥对数据加密，基于散列函数验证信息的完整性。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/4/20/162e3583d5cb5b1e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" class="lazyload" data-srcset="https://user-gold-cdn.xitu.io/2018/4/20/162e3583d5cb5b1e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" srcset="data:image/png;base64,666" alt="图片"></p>
+<p>SSL/TLS协议运行机制 可以看<a target="_blank" rel="noopener" href="https://ruanyifeng.com/blog/2014/02/ssl_tls.html">阮老师的SSL/TLS协议运行机制的概述</a></p>
 <h2 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h2><p>由于使用了数字证书，加密解密这样的方法，导致HTTPS相比于普通的HTTP要慢得多，但是只有支持了 HTTPS，才能部署 HTTP/2，而 HTTP/2 协议会提升速度，能够有效减轻客户端和服务器端的压力，让响应更快速。这一点就要联系到HTTP不同版本之前的区别，以及HTTP的历史了。</p>
-<p><img src="https://pic4.zhimg.com/80/v2-1ea0209a526f3527a713736fe7609fcf_720w.jpg" class="lazyload" data-srcset="https://pic4.zhimg.com/80/v2-1ea0209a526f3527a713736fe7609fcf_720w.jpg" srcset="data:image/png;base64,666" alt="HTTPS的整体实现过程"><br>这张图片中显示的HTTPS在进行证书验证之后，客户端与服务端直接使用了对称加密的方法进行了数据传输，但是依然使用了公钥和私钥进行了加密解密，这一点我没有太搞懂，另外SSL和TLS这些名词的含义也还没有整明白，明天再看看吧。。测试</p>
+<p><img src="https://pic4.zhimg.com/80/v2-1ea0209a526f3527a713736fe7609fcf_720w.jpg" class="lazyload" data-srcset="https://pic4.zhimg.com/80/v2-1ea0209a526f3527a713736fe7609fcf_720w.jpg" srcset="data:image/png;base64,666" alt="HTTPS的整体实现过程"><br>该图片中显示，服务端与客户端仍然使用公钥私钥，这部分实际上双方是通过对称加密生成的钥匙进行沟通的。由于非对称加密使用公钥私钥加密的计算量很大，消耗时间，所以事实上每一次对话，客户端和服务器端都生成一个”<strong>对话密钥</strong>“，用它来加密信息。由于”对话密钥”是<strong>对称加密</strong>，所以运算速度非常快，而服务器公钥只用于加密”对话密钥”本身，这样就减少了加密运算的消耗时间。</p>
+<p>如何理解呢，大致上就是说，我们把我们实际对话的对称加密密钥，用非对称加密的公钥加密一次，保证这个密钥的安全性，然后在实际对话中就可以放心的使用对称加密的密钥了。</p>
 
   
   
@@ -494,7 +504,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-08T18:51:41+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-08T20:32:46+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>最后更新于：2021年4月8日</p>
@@ -695,7 +705,7 @@ LeetCode生成题解md脚本经历了大概两个月的摸鱼，最近终于又�
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-text">参考文章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E4%B8%8EHTTPS%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">HTTP与HTTPS的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E4%B8%8E%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="toc-text">对称加密与非对称加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%81%E4%B9%A6%E4%B8%8E%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="toc-text">证书与数字签名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E8%AF%9D"><span class="toc-text">后话</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="toc-text">参考文章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E4%B8%8EHTTPS%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">HTTP与HTTPS的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E4%B8%8E%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="toc-text">对称加密与非对称加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%81%E4%B9%A6%E4%B8%8E%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="toc-text">证书与数字签名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SSL%E4%B8%8ETLS"><span class="toc-text">SSL与TLS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SSL%E5%92%8CTLS%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">SSL和TLS的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TLS-SSL-%E5%8D%8F%E8%AE%AE"><span class="toc-text">TLS&#x2F;SSL 协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E8%AF%9D"><span class="toc-text">后话</span></a></li></ol>
     </div>
   </section>
 
