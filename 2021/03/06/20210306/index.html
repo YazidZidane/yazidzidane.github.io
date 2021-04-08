@@ -470,6 +470,8 @@
 <h2 id="GitHub密钥设置"><a href="#GitHub密钥设置" class="headerlink" title="GitHub密钥设置"></a>GitHub密钥设置</h2><p>把这篇文章传上去之后，我收到了GitHub发来的一篇邮件，里面说要使用新的git认证方式：</p>
 <div class="note quote"><p><strong>GitHub</strong></p><p>Hi @YazidZidane,</p><p>You recently used a password to access the repository at YazidZidane/yazidzidane.github.io with git using git/2.29.2.windows.3.</p><p>Basic authentication using a password to Git is deprecated and will soon no longer work. Visit <a target="_blank" rel="noopener" href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/">https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/</a> for more information around suggested workarounds and removal dates.</p><p>Thanks,<br>The GitHub Team</p></div>
 
+<div class="note quote"><p><strong>后续</strong></p><p>已解决，主要就是我之前对hexo主题配置的有问题。<br>解决这个问题，首先需要在Github中设置SSHkey，具体可以百度。<br>设置好后，在github上点开你的仓库，然后点击Code按钮，下面会有一个可以复制的地址，格式为<a href="mailto:&#103;&#105;&#x74;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#46;&#x63;&#x6f;&#x6d;">&#103;&#105;&#x74;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#46;&#x63;&#x6f;&#x6d;</a>:你的昵称/仓库里的.git文件，上面会显示SSH，复制这个地址。<br>然后在hexo主题下的_config.yml文件中找到# Deployment下的deploy一栏，将其中的repo后面的内容修改为上一步中复制的地址。<br>再次使用hexo d，就不会再提示这样的消息了。</p></div>
+
 
 <p>这个我暂时还没整明白是咋回事，不知道是不是跟之前搞过的ssh key一样，总之应该尽快搞一下。</p>
 
@@ -491,10 +493,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-03-06T10:16:58+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-08T20:06:22+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>最后更新于：2021年3月6日</p>
+    <p>最后更新于：2021年4月8日</p>
   </a>
 </div>
 
