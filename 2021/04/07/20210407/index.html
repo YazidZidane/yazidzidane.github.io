@@ -474,7 +474,7 @@
 <p>我们从现实中找灵感。比如你是HR，你手上拿到候选人的学历证书，证书上写了持证人，颁发机构，颁发时间等等，同时证书上，还写有一个最重要的：证书编号！我们怎么鉴别这张证书是的真伪呢？只要拿着这个证书编号上相关机构去查，如果证书上的持证人与现实的这个候选人一致，同时证书编号也能对应上，那么就说明这个证书是真实的。</p>
 <p>现实中，浏览器和操作系统都会维护一个权威的第三方机构列表（包括它们的公钥）。因为客户端接收到的证书中会写有颁发机构，客户端就根据这个颁发机构的值在本地找相应的公钥。并用公钥对证书上的内容进行解密，比对数字签名。由于数字签名这一东西是由服务端向第三方机构申请，并<strong>通过第三方机构私钥产生的</strong>，因此中间人不能伪造数字签名，以假装自己是真正的服务端，<strong>如果中间人使用了自己申请的伪造证书，那么在客户端对于证书内容解密后，会出现验证签名不匹配的情况，这样客户端就会提醒用户可能存在的安全风险了。</strong></p>
 <h2 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h2><p>由于使用了数字证书，加密解密这样的方法，导致HTTPS相比于普通的HTTP要慢得多，但是只有支持了 HTTPS，才能部署 HTTP/2，而 HTTP/2 协议会提升速度，能够有效减轻客户端和服务器端的压力，让响应更快速。这一点就要联系到HTTP不同版本之前的区别，以及HTTP的历史了。</p>
-<p><img src="https://pic4.zhimg.com/80/v2-1ea0209a526f3527a713736fe7609fcf_720w.jpg" class="lazyload" data-srcset="https://pic4.zhimg.com/80/v2-1ea0209a526f3527a713736fe7609fcf_720w.jpg" srcset="data:image/png;base64,666" alt="HTTPS的整体实现过程"><br>这张图片中显示的HTTPS在进行证书验证之后，客户端与服务端直接使用了对称加密的方法进行了数据传输，但是依然使用了公钥和私钥进行了加密解密，这一点我没有太搞懂，另外SSL和TLS这些名词的含义也还没有整明白，明天再看看吧。。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-1ea0209a526f3527a713736fe7609fcf_720w.jpg" class="lazyload" data-srcset="https://pic4.zhimg.com/80/v2-1ea0209a526f3527a713736fe7609fcf_720w.jpg" srcset="data:image/png;base64,666" alt="HTTPS的整体实现过程"><br>这张图片中显示的HTTPS在进行证书验证之后，客户端与服务端直接使用了对称加密的方法进行了数据传输，但是依然使用了公钥和私钥进行了加密解密，这一点我没有太搞懂，另外SSL和TLS这些名词的含义也还没有整明白，明天再看看吧。。测试</p>
 
   
   
@@ -494,10 +494,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-07T22:57:18+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-08T18:51:41+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>最后更新于：2021年4月7日</p>
+    <p>最后更新于：2021年4月8日</p>
   </a>
 </div>
 
