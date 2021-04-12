@@ -478,13 +478,14 @@
 
 <p>HTTPS是在通信接口部分用 TLS(Transport Layer Security 传输层安全性协议)，TLS协议采用主从式架构模型，用于在两个应用程序间通过网络创建起安全的连接，防止在交换数据时受到窃听及篡改。<br><img src="https://user-gold-cdn.xitu.io/2018/4/16/162cd3df803538f6?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" class="lazyload" data-srcset="https://user-gold-cdn.xitu.io/2018/4/16/162cd3df803538f6?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" srcset="data:image/png;base64,666" alt="图片"></p>
 <h3 id="SSL和TLS的关系"><a href="#SSL和TLS的关系" class="headerlink" title="SSL和TLS的关系"></a>SSL和TLS的关系</h3><p>传输层安全性协议（英语：Transport Layer Security，缩写作 TLS），及其前身安全套接层（Secure Sockets Layer，缩写作 SSL）是一种安全协议，目的是为互联网通信，提供安全及数据完整性保障。</p>
-<p>网景公司（Netscape）在1994年推出首版网页浏览器，网景导航者时，推出HTTPS协议，以SSL进行加密，这是SSL的起源。<br>IETF将SSL进行标准化，1999年公布第一版TLS标准文件。随后又公布RFC 5246 （2008年8月）与 RFC 6176 （2011年3月）。在浏览器、电子邮件、即时通信、VoIP、网络传真等应用程序中，广泛支持这个协议。</p>
+<p>网景公司（Netscape）在1994年推出首版网页浏览器，网景导航者时，推出HTTPS协议，以SSL进行加密，这是SSL的起源。</p>
+<p>IETF将SSL进行标准化，1999年公布第一版TLS标准文件。随后又公布RFC 5246 （2008年8月）与 RFC 6176 （2011年3月）。在浏览器、电子邮件、即时通信、VoIP、网络传真等应用程序中，广泛支持这个协议。</p>
 <h3 id="TLS-SSL-协议"><a href="#TLS-SSL-协议" class="headerlink" title="TLS/SSL 协议"></a>TLS/SSL 协议</h3><p>HTTPS 协议的主要功能基本都依赖于 TLS/SSL 协议，TLS/SSL 的功能实现主要依赖于三类基本算法：<emp>散列函数、对称加密和非对称加密</emp>，其利用非对称加密实现身份认证和密钥协商，对称加密算法采用协商的密钥对数据加密，基于散列函数验证信息的完整性。</p>
 <p><img src="https://user-gold-cdn.xitu.io/2018/4/20/162e3583d5cb5b1e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" class="lazyload" data-srcset="https://user-gold-cdn.xitu.io/2018/4/20/162e3583d5cb5b1e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" srcset="data:image/png;base64,666" alt="图片"></p>
 <p>SSL/TLS协议运行机制 可以看<a target="_blank" rel="noopener" href="https://ruanyifeng.com/blog/2014/02/ssl_tls.html">阮老师的SSL/TLS协议运行机制的概述</a></p>
 <h2 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h2><p>由于使用了数字证书，加密解密这样的方法，导致HTTPS相比于普通的HTTP要慢得多，但是只有支持了 HTTPS，才能部署 HTTP/2，而 HTTP/2 协议会提升速度，能够有效减轻客户端和服务器端的压力，让响应更快速。这一点就要联系到HTTP不同版本之前的区别，以及HTTP的历史了。</p>
 <p><img src="https://pic4.zhimg.com/80/v2-1ea0209a526f3527a713736fe7609fcf_720w.jpg" class="lazyload" data-srcset="https://pic4.zhimg.com/80/v2-1ea0209a526f3527a713736fe7609fcf_720w.jpg" srcset="data:image/png;base64,666" alt="HTTPS的整体实现过程"><br>该图片中显示，服务端与客户端仍然使用公钥私钥，这部分实际上双方是通过对称加密生成的钥匙进行沟通的。由于非对称加密使用公钥私钥加密的计算量很大，消耗时间，所以事实上每一次对话，客户端和服务器端都生成一个”<strong>对话密钥</strong>“，用它来加密信息。由于”对话密钥”是<strong>对称加密</strong>，所以运算速度非常快，而服务器公钥只用于加密”对话密钥”本身，这样就减少了加密运算的消耗时间。</p>
-<p>如何理解呢，大致上就是说，我们把我们实际对话的对称加密密钥，用非对称加密的公钥加密一次，保证这个密钥的安全性，然后在实际对话中就可以放心的使用对称加密的密钥了。</p>
+<p>如何理解呢，大致上就是说，我们把我们实际对话的<strong>对称加密密钥</strong>，用<strong>非对称加密的公钥</strong>加密一次，保证这个密钥的安全性，然后在实际对话中就可以放心的使用<strong>对称加密的密钥</strong>了。</p>
 
   
   
@@ -504,7 +505,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-08T20:32:46+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-08T20:35:04+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>最后更新于：2021年4月8日</p>
