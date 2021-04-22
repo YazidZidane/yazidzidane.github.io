@@ -4,6 +4,48 @@
   
     
     <entry>
+      <title>面向对象设计的原则</title>
+      <link href="2021/04/22/20210422-sd/"/>
+      <url>2021/04/22/20210422-sd/</url>
+      
+        <content type="html"><![CDATA[<p>今天在看面经的时候看到了一道问题：面向对象设计的原则。虽然学计算机这么多年，但我从来没有在设计原则这方面进行过学习，对于那些设计模式、MVC这样的东西更是一知半解，今天利用这个机会稍微学习一下。</p><p>这篇文章还没完成，内容是从下面的参考文章抄来的，具体还有待完善。</p><a id="more"></a><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://www.cnblogs.com/ahao214/p/9879104.html">面向对象设计原则</a><br><a href="https://www.cnblogs.com/yeya/p/10655760.html">设计模式：面向对象设计的六大原则 (绝对详细)</a></p><h3 id="1、单一职责原则"><a href="#1、单一职责原则" class="headerlink" title="1、单一职责原则"></a>1、单一职责原则</h3><p>定义：<br>一个对象应该只包含单一的职责，并且该职责被完整地封装在一个类中。<br>单一职责原则是实现高内聚、低耦合的指导方针，是最简单却最难运用的原则，需要设计人员发现类的不同职责并将其分离</p><h3 id="2、开闭原则"><a href="#2、开闭原则" class="headerlink" title="2、开闭原则"></a>2、开闭原则</h3><p>定义：<br>软件实体应当对扩展开放，对修改关闭。<br>指软件实体应尽量在不修改原有代码的情况下进行扩展。</p><h3 id="3、里氏替换原则"><a href="#3、里氏替换原则" class="headerlink" title="3、里氏替换原则"></a>3、里氏替换原则</h3><p>定义：<br>所有引用基类的地方必须能透明地使用其子类的对象。<br>里氏替换原则表明，在软件中将一个基类对象替换成它的子类对象，程序将不会产生任何错误和异常，反过来则不成立。<br>在运用里氏替换原则时，应该将父类设计为抽象类或者接口，让子类继承父类或实现父类接口，并实现在父类中声明的方法。</p><h3 id="4、依赖倒转原则"><a href="#4、依赖倒转原则" class="headerlink" title="4、依赖倒转原则"></a>4、依赖倒转原则</h3><p>定义：<br>高层模块不应该依赖底层模块，它们都应该依赖抽象。抽象不应该依赖于细节，细节应该依赖于抽象。<br>依赖倒转原则要求：要针对接口编程，不要针对实现编程。</p><h3 id="5、接口隔离原则"><a href="#5、接口隔离原则" class="headerlink" title="5、接口隔离原则"></a>5、接口隔离原则</h3><p>定义：<br>客户端不应该依赖那些它不需要的接口。<br>在使用接口隔离原则的时候，需要注意控制接口的粒度，接口不能太小，如果太小会导致系统中接口泛滥，不利于维护；接口也不能太大，太大的接口将违背接口隔离原则，灵活性较差，使用起来不方便。</p><h3 id="6、合成复用原则"><a href="#6、合成复用原则" class="headerlink" title="6、合成复用原则"></a>6、合成复用原则</h3><p>定义：<br>优先使用对象组合，而不是继承来达到复用的目的。<br>一般而言，如果两个类之间是”Has-A”关系应使用组合或聚合，如果是”Is-A”关系可使用继承。</p><h3 id="7、迪米特法则-又称最少知识原则"><a href="#7、迪米特法则-又称最少知识原则" class="headerlink" title="7、迪米特法则-又称最少知识原则"></a>7、迪米特法则-又称最少知识原则</h3><p>定义：<br>每一个软件单位对其他的单位都只有最少的知识，而且局限于那些与本单位密切相关的软件单位。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 软件工程 </tag>
+            
+            <tag> 设计原则 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>DNS查询过程，递归查询与迭代查询</title>
+      <link href="2021/04/21/20200421-network/"/>
+      <url>2021/04/21/20200421-network/</url>
+      
+        <content type="html"><![CDATA[<p>今天复习了一下DNS的相关知识，水一篇文章记录一下。</p><a id="more"></a><h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://github.com/LiangJunrong/document-library/blob/master/%E7%B3%BB%E5%88%97-%E9%9D%A2%E8%AF%95%E8%B5%84%E6%96%99/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/DNS.md">github-DNS</a><br><a href="http://www.sunhao.win/articles/netwrok-dns.html">写给前端工程师的DNS基础知识</a><br><a href="https://imweb.io/topic/55e3ba46771670e207a16bc8">DNS解析</a><br><a href="https://www.cnblogs.com/qingdaofu/p/7399670.html">DNS递归查询与迭代查询</a></p><h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><p>为了识别一个实体，TCP/IP协议通过IP地址来唯一确定一台主机到因特网的连接。但是，由于IP地址非常难记，人们更愿意用名字而不是数字来识别。因此互联网需要一种能够将名字映射为数字的目录系统。</p><p>域名系统(Domain Name System,DNS)便是这样的一个系统，为客户端提供IP地址查询的服务。我们访问网站输入网站域名，通过DNS客户端像DNS服务器发送查询请求，DNS服务器就解析我们的域名为相应的IP地址。</p><p><strong>DNS使用UDP协议，使用客户端-服务器模型</strong>。</p><h2 id="层次域名空间"><a href="#层次域名空间" class="headerlink" title="层次域名空间"></a>层次域名空间</h2><p>因特网使用层次结构的域名命名方法，如下图：<br>!()[<a href="https://images2017.cnblogs.com/blog/858807/201708/858807-20170820123427006-190298208.png]">https://images2017.cnblogs.com/blog/858807/201708/858807-20170820123427006-190298208.png]</a><br>一个域名可以划分为多个层次，如顶级域、二级域、三级域等，不同域名中用点隔开。</p><p>顶级域名分为：</p><p>(1)国家顶级域名nTLD：采用ISO3166的规定。如：cn代表中国，us代表美国，uk代表英国，等等。国家域名又常记为ccTLD(cc表示国家代码contry-code)。</p><p>(2)通用顶级域名gTLD：最常见的通用顶级域名有7个，即：com(公司企业)，net(网络服务机构)，org(非营利组织)，int(国际组织)，gov(美国的政府部门)，mil(美国的军事部门)。</p><p>(3)基础结构域名(infrastructure domain)：这种顶级域名只有一个，即arpa，用于反向域名解析，因此称为反向域名。<strong>（已废止）</strong></p><p>!()[<a href="https://images2017.cnblogs.com/blog/858807/201708/858807-20170820123443521-1502085421.png]">https://images2017.cnblogs.com/blog/858807/201708/858807-20170820123443521-1502085421.png]</a></p><h2 id="域名服务器"><a href="#域名服务器" class="headerlink" title="域名服务器"></a>域名服务器</h2><p>!()[<a href="https://images2017.cnblogs.com/blog/858807/201708/858807-20170820123624303-680937649.png]">https://images2017.cnblogs.com/blog/858807/201708/858807-20170820123624303-680937649.png]</a></p><h3 id="根域名服务器"><a href="#根域名服务器" class="headerlink" title="根域名服务器"></a>根域名服务器</h3><p>根域名服务器全球共有13台，每一台都覆盖了整个域名空间，它<strong>并不负责查找域名，而是告诉本地域名服务器下一步应当找哪一个顶级域名服务器进行查询</strong>。每个服务器都是冗余服务器的集群，以提供安全性和可靠性。</p><h3 id="顶级域名服务器"><a href="#顶级域名服务器" class="headerlink" title="顶级域名服务器"></a>顶级域名服务器</h3><p>顶级域名服务器负责管理在该顶级域名服务器注册的所有二级域名（.com）。收到DNS请求时，可能直接返回查询结果，也可能返回下一步查找的服务器地址。</p><h3 id="授权域名服务器"><a href="#授权域名服务器" class="headerlink" title="授权域名服务器"></a>授权域名服务器</h3><p>每台主机都必须在授权域名服务器处登记，然后服务器为其授权提供IP地址。（<strong>这里不太确定，是否意思就是提供购买域名的服务的服务器</strong>）</p><h3 id="本地域名服务器"><a href="#本地域名服务器" class="headerlink" title="本地域名服务器"></a>本地域名服务器</h3><p>因特网服务提供者（ISP），或一所大学都可以拥有一个本地域名服务器，<strong>在发送DNS请求时，请求首先会被发送到本地域名服务器。</strong></p><h2 id="域名解析过程"><a href="#域名解析过程" class="headerlink" title="域名解析过程"></a>域名解析过程</h2><h3 id="总体过程"><a href="#总体过程" class="headerlink" title="总体过程"></a>总体过程</h3><p>1.查询 <a href="http://www.baidu.com/">www.baidu.com</a></p><p>2.访问客户端 DNS 缓存：<strong>浏览器缓存 -&gt; 系统缓存（host） -&gt; 路由器缓存</strong></p><p>3.访问 <strong>ISP DNS 服务器</strong>（ISP，互联网服务提供商，有联通电信移动等。如果你是电信网络，则进入电信的 DNS 缓存服务器，以下简称本地），如果本地服务器有，则4.直接返回；如果没有，让本地 DNS 服务器去逐个咨询查找。</p><p>5.本地去咨询 <strong>DNS 根服务器</strong>，DNS 根服务器发现是 .com 区域 管理的，告诉本地去咨询它。</p><p>6.本地去咨询 <strong>.com 顶级域服务器</strong>，.com 域服务器告诉本地去咨询 baidu.com 主区域 的服务器。</p><p>7.本地去咨询 <strong>baidu.com 主域名服务器</strong>，baidu.com 域服务器查找到对应的 IP 地址，返回给本地。</p><p>8.本地 DNS 云服务器通知用户对方 IP 地址，同时缓存这个 IP 地址，下次就直接访问了。</p><h3 id="递归查询与迭代查询"><a href="#递归查询与迭代查询" class="headerlink" title="递归查询与迭代查询"></a>递归查询与迭代查询</h3><p>递归查询:主机向本地域名服务器的查询一般都是采用递归查询。<br>迭代查询:本地域名服务器向根域名服务器的查询的迭代查询。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 计算机网络 </tag>
+            
+            <tag> DNS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>HTTP与HTTPS，一些关键地方的理解</title>
       <link href="2021/04/07/20210407/"/>
       <url>2021/04/07/20210407/</url>
@@ -29,7 +71,7 @@
       <link href="2021/03/06/20210306/"/>
       <url>2021/03/06/20210306/</url>
       
-        <content type="html"><![CDATA[<p>最近学习生活繁忙，先画一些大饼，能不能完成以后再说。。。ヽ(。&gt;д&lt;)ｐ</p><a id="more"></a><h2 id="LeetCode生成题解md脚本"><a href="#LeetCode生成题解md脚本" class="headerlink" title="LeetCode生成题解md脚本"></a>LeetCode生成题解md脚本</h2><p>经历了大概两个月的摸鱼，最近终于又重新开始搞LeetCode了，其实之前一直想整一个可以自动生成题解的框架，就像我之前的一些文章一样自动生成题目链接，题目简介，示例输入输出，甚至代码这样的脚本。其实实现起来应该并不难，只需要做一个爬虫就好了，然后解析一下网页把相关的内容粘下来，不过由于懒一直都没有做。。。</p><h2 id="网易BUFF-amp-amp-Steam社区市场爬虫"><a href="#网易BUFF-amp-amp-Steam社区市场爬虫" class="headerlink" title="网易BUFF &amp;&amp; Steam社区市场爬虫"></a>网易BUFF &amp;&amp; Steam社区市场爬虫</h2><p>这个也是老早就想做的了，由于自己是一名csgo玩家，很早之前就想做一个爬虫软件，自动将buff和steam市场的数据爬下来自己使用，当然网上也有很多现成的代码，不知道能不能使用，不过这个也是从去年就开始计划做的东西了。。。</p><h2 id="GitHub密钥设置"><a href="#GitHub密钥设置" class="headerlink" title="GitHub密钥设置"></a>GitHub密钥设置</h2><p>把这篇文章传上去之后，我收到了GitHub发来的一篇邮件，里面说要使用新的git认证方式：</p><div class="note quote"><p><strong>GitHub</strong></p><p>Hi @YazidZidane,</p><p>You recently used a password to access the repository at YazidZidane/yazidzidane.github.io with git using git/2.29.2.windows.3.</p><p>Basic authentication using a password to Git is deprecated and will soon no longer work. Visit <a href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/">https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/</a> for more information around suggested workarounds and removal dates.</p><p>Thanks,<br>The GitHub Team</p></div><p>这个我暂时还没整明白是咋回事，不知道是不是跟之前搞过的ssh key一样，总之应该尽快搞一下。</p><div class="note quote"><p><strong>后续</strong></p><p>已解决，主要就是我之前对hexo主题配置的有问题。</p><p>解决这个问题，首先需要在Github中设置SSHkey，具体可以百度。</p><p>设置好后，在github上点开你的仓库，然后点击Code按钮，下面会有一个可以复制的地址，格式为<a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#104;&#117;&#98;&#46;&#x63;&#x6f;&#109;">&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#104;&#117;&#98;&#46;&#x63;&#x6f;&#109;</a>:你的昵称/仓库里的.git文件，上面会显示SSH，复制这个地址。</p><p>然后在hexo主题下的_config.yml文件中找到# Deployment下的deploy一栏，将其中的repo后面的内容修改为上一步中复制的地址。</p><p>再次使用hexo d，就不会再提示这样的消息了。</p></div><h2 id="4-12-自动填写简历脚本"><a href="#4-12-自动填写简历脚本" class="headerlink" title="4.12    自动填写简历脚本"></a>4.12    自动填写简历脚本</h2><p>最近经常投各种简历嘛，然后我个人最反感的一件事就是我明明费尽心思已经制作好了一个简明，清晰，全面的简历，却还要在各种网站上一项一项的填好姓名，性别，生日，身份证号，手机，项目经历，实习经历，个人简介。。。。。。。虽然填一次两次没什么，但是天天填简直烦死了好不好！(╬｀益´)ｺ</p><p>如果能整一个自动填写简历的脚本就好了，不过感觉这个可能不太好实现，毕竟各个网页的组成也不一样，如果只用selenium写一个简单的脚本的话恐怕不太行。</p>]]></content>
+        <content type="html"><![CDATA[<p>最近学习生活繁忙，先画一些大饼，能不能完成以后再说。。。ヽ(。&gt;д&lt;)ｐ</p><a id="more"></a><h2 id="LeetCode生成题解md脚本"><a href="#LeetCode生成题解md脚本" class="headerlink" title="LeetCode生成题解md脚本"></a>LeetCode生成题解md脚本</h2><p>经历了大概两个月的摸鱼，最近终于又重新开始搞LeetCode了，其实之前一直想整一个可以自动生成题解的框架，就像我之前的一些文章一样自动生成题目链接，题目简介，示例输入输出，甚至代码这样的脚本。其实实现起来应该并不难，只需要做一个爬虫就好了，然后解析一下网页把相关的内容粘下来，不过由于懒一直都没有做。。。</p><h2 id="网易BUFF-amp-amp-Steam社区市场爬虫"><a href="#网易BUFF-amp-amp-Steam社区市场爬虫" class="headerlink" title="网易BUFF &amp;&amp; Steam社区市场爬虫"></a>网易BUFF &amp;&amp; Steam社区市场爬虫</h2><p>这个也是老早就想做的了，由于自己是一名csgo玩家，很早之前就想做一个爬虫软件，自动将buff和steam市场的数据爬下来自己使用，当然网上也有很多现成的代码，不知道能不能使用，不过这个也是从去年就开始计划做的东西了。。。</p><h2 id="GitHub密钥设置"><a href="#GitHub密钥设置" class="headerlink" title="GitHub密钥设置"></a>GitHub密钥设置</h2><p>把这篇文章传上去之后，我收到了GitHub发来的一篇邮件，里面说要使用新的git认证方式：</p><div class="note quote"><p><strong>GitHub</strong></p><p>Hi @YazidZidane,</p><p>You recently used a password to access the repository at YazidZidane/yazidzidane.github.io with git using git/2.29.2.windows.3.</p><p>Basic authentication using a password to Git is deprecated and will soon no longer work. Visit <a href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/">https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/</a> for more information around suggested workarounds and removal dates.</p><p>Thanks,<br>The GitHub Team</p></div><p>这个我暂时还没整明白是咋回事，不知道是不是跟之前搞过的ssh key一样，总之应该尽快搞一下。</p><div class="note quote"><p><strong>后续</strong></p><p>已解决，主要就是我之前对hexo主题配置的有问题。</p><p>解决这个问题，首先需要在Github中设置SSHkey，具体可以百度。</p><p>设置好后，在github上点开你的仓库，然后点击Code按钮，下面会有一个可以复制的地址，格式为<a href="mailto:&#x67;&#105;&#116;&#x40;&#103;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#111;&#109;">&#x67;&#105;&#116;&#x40;&#103;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#111;&#109;</a>:你的昵称/仓库里的.git文件，上面会显示SSH，复制这个地址。</p><p>然后在hexo主题下的_config.yml文件中找到# Deployment下的deploy一栏，将其中的repo后面的内容修改为上一步中复制的地址。</p><p>再次使用hexo d，就不会再提示这样的消息了。</p></div><h2 id="4-12-自动填写简历脚本"><a href="#4-12-自动填写简历脚本" class="headerlink" title="4.12    自动填写简历脚本"></a>4.12    自动填写简历脚本</h2><p>最近经常投各种简历嘛，然后我个人最反感的一件事就是我明明费尽心思已经制作好了一个简明，清晰，全面的简历，却还要在各种网站上一项一项的填好姓名，性别，生日，身份证号，手机，项目经历，实习经历，个人简介。。。。。。。虽然填一次两次没什么，但是天天填简直烦死了好不好！(╬｀益´)ｺ</p><p>如果能整一个自动填写简历的脚本就好了，不过感觉这个可能不太好实现，毕竟各个网页的组成也不一样，如果只用selenium写一个简单的脚本的话恐怕不太行。</p>]]></content>
       
       
       
