@@ -469,13 +469,13 @@
 <h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><p>为了识别一个实体，TCP/IP协议通过IP地址来唯一确定一台主机到因特网的连接。但是，由于IP地址非常难记，人们更愿意用名字而不是数字来识别。因此互联网需要一种能够将名字映射为数字的目录系统。</p>
 <p>域名系统(Domain Name System,DNS)便是这样的一个系统，为客户端提供IP地址查询的服务。我们访问网站输入网站域名，通过DNS客户端像DNS服务器发送查询请求，DNS服务器就解析我们的域名为相应的IP地址。</p>
 <p><strong>DNS使用UDP协议，使用客户端-服务器模型</strong>。</p>
-<h2 id="层次域名空间"><a href="#层次域名空间" class="headerlink" title="层次域名空间"></a>层次域名空间</h2><p>因特网使用层次结构的域名命名方法，如下图：<br>!()[<a target="_blank" rel="noopener" href="https://images2017.cnblogs.com/blog/858807/201708/858807-20170820123427006-190298208.png]">https://images2017.cnblogs.com/blog/858807/201708/858807-20170820123427006-190298208.png]</a><br>一个域名可以划分为多个层次，如顶级域、二级域、三级域等，不同域名中用点隔开。</p>
+<h2 id="层次域名空间"><a href="#层次域名空间" class="headerlink" title="层次域名空间"></a>层次域名空间</h2><p>因特网使用层次结构的域名命名方法，如下图：<br><img src="https://images2017.cnblogs.com/blog/858807/201708/858807-20170820123427006-190298208.png" class="lazyload" data-srcset="https://images2017.cnblogs.com/blog/858807/201708/858807-20170820123427006-190298208.png" srcset="data:image/png;base64,666"><br>一个域名可以划分为多个层次，如顶级域、二级域、三级域等，不同域名中用点隔开。</p>
 <p>顶级域名分为：</p>
 <p>(1)国家顶级域名nTLD：采用ISO3166的规定。如：cn代表中国，us代表美国，uk代表英国，等等。国家域名又常记为ccTLD(cc表示国家代码contry-code)。</p>
 <p>(2)通用顶级域名gTLD：最常见的通用顶级域名有7个，即：com(公司企业)，net(网络服务机构)，org(非营利组织)，int(国际组织)，gov(美国的政府部门)，mil(美国的军事部门)。</p>
 <p>(3)基础结构域名(infrastructure domain)：这种顶级域名只有一个，即arpa，用于反向域名解析，因此称为反向域名。<strong>（已废止）</strong></p>
-<p>!()[<a target="_blank" rel="noopener" href="https://images2017.cnblogs.com/blog/858807/201708/858807-20170820123443521-1502085421.png]">https://images2017.cnblogs.com/blog/858807/201708/858807-20170820123443521-1502085421.png]</a></p>
-<h2 id="域名服务器"><a href="#域名服务器" class="headerlink" title="域名服务器"></a>域名服务器</h2><p>!()[<a target="_blank" rel="noopener" href="https://images2017.cnblogs.com/blog/858807/201708/858807-20170820123624303-680937649.png]">https://images2017.cnblogs.com/blog/858807/201708/858807-20170820123624303-680937649.png]</a></p>
+<p><img src="https://images2017.cnblogs.com/blog/858807/201708/858807-20170820123443521-1502085421.png" class="lazyload" data-srcset="https://images2017.cnblogs.com/blog/858807/201708/858807-20170820123443521-1502085421.png" srcset="data:image/png;base64,666"></p>
+<h2 id="域名服务器"><a href="#域名服务器" class="headerlink" title="域名服务器"></a>域名服务器</h2><p><img src="https://images2017.cnblogs.com/blog/858807/201708/858807-20170820123624303-680937649.png" class="lazyload" data-srcset="https://images2017.cnblogs.com/blog/858807/201708/858807-20170820123624303-680937649.png" srcset="data:image/png;base64,666"></p>
 <h3 id="根域名服务器"><a href="#根域名服务器" class="headerlink" title="根域名服务器"></a>根域名服务器</h3><p>根域名服务器全球共有13台，每一台都覆盖了整个域名空间，它<strong>并不负责查找域名，而是告诉本地域名服务器下一步应当找哪一个顶级域名服务器进行查询</strong>。每个服务器都是冗余服务器的集群，以提供安全性和可靠性。</p>
 <h3 id="顶级域名服务器"><a href="#顶级域名服务器" class="headerlink" title="顶级域名服务器"></a>顶级域名服务器</h3><p>顶级域名服务器负责管理在该顶级域名服务器注册的所有二级域名（.com）。收到DNS请求时，可能直接返回查询结果，也可能返回下一步查找的服务器地址。</p>
 <h3 id="授权域名服务器"><a href="#授权域名服务器" class="headerlink" title="授权域名服务器"></a>授权域名服务器</h3><p>每台主机都必须在授权域名服务器处登记，然后服务器为其授权提供IP地址。（<strong>这里不太确定，是否意思就是提供购买域名的服务的服务器</strong>）</p>
@@ -507,10 +507,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-22T22:25:23+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-23T20:20:18+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>最后更新于：2021年4月22日</p>
+    <p>最后更新于：2021年4月23日</p>
   </a>
 </div>
 
