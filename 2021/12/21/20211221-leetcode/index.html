@@ -19,9 +19,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>所有标签 - Ted Xu</title>
+  <title>2021.12.21 硬刚KMP算法 - Ted Xu</title>
+  
+    <meta name="keywords" content="LeetCode">
   
 
+  
+    <meta name="description" content="28. 实现 strStr()459. 重复的子字符串686. 重复叠加字符串匹配今天刷的题基本上都是KMP算法的，正好借这个机会好好学习一下这个算法。">
   
 
   <!-- feed -->
@@ -325,7 +329,7 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper tag featured' style="display: none;">
+        <div id="full" class='cover-wrapper post featured' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -395,23 +399,211 @@
       <div class='body-wrapper' id="pjax-container">
         
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      <div class='post-wrapper'>
-        <article id="tag" class="post article white-box reveal shadow">
-          <h2>所有标签</h2>
-          <div class="all-tags">
-            
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS/" rel="tag">DNS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/" rel="tag">HTTP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Volantis/" rel="tag">Volantis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%95%E8%B0%83%E6%A0%88/" rel="tag">单调栈</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91/" rel="tag">开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%80%E5%A4%A7%E5%A0%86/" rel="tag">最大堆</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" rel="tag">设计原则</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" rel="tag">贪心算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" rel="tag">软件工程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94/" rel="tag">随笔</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">1</span></li></ul>
-          </div>
-          <br>
+    
+    
+      <h1 class="title">
+        2021.12.21 硬刚KMP算法
+      </h1>
+      <div class='new-meta-box'>
+        
           
-        </article>
+            
+<div class='new-meta-item author'>
+  <a class='author' href="" rel="nofollow">
+    <img no-lazy src="/images/rowlet.png">
+    <p>Ted</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021年12月21日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="2021.12.21 硬刚KMP算法" data-path="/2021/12/21/20211221-leetcode/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
       </div>
     
+  </div>
+
+
   
+  <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/implement-strstr/">28. 实现 strStr()</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/repeated-substring-pattern/">459. 重复的子字符串</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/repeated-string-match/">686. 重复叠加字符串匹配</a><br>今天刷的题基本上都是KMP算法的，正好借这个机会好好学习一下这个算法。</p>
+<a id="more"></a>
+
+<h2 id="28-实现-strStr"><a href="#28-实现-strStr" class="headerlink" title="28. 实现 strStr()"></a>28. 实现 strStr()</h2><p>KMP算法，主要用于在字符串匹配，即在一个长的字符串中查找一个给定的字符串是否存在。同时这也是今天的第一道题<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/implement-strstr/">28. 实现 strStr()</a>。</p>
+<p>遇到这样的问题，首先想到的就是暴力解法，用两个指针分别指向两字符串的首位，然后不断进行匹配比较，如果匹配不成功的话，就在长的字符串上的下一位进行比较，这一步是必要的，因为不能确定由下一位开始的字符串中是否包含了子串，这样算法的时间复杂度是O(mn)，因为在最差情况下要对长字符串的每一位进行匹配一次。而使用KMP算法就可以将时间复杂度减小到O(m + n)。</p>
+<p>其实在使用暴力解法时，很容易想到如果不是每一次都在长串中选择下一位进行比较，因为有时后面的位也已经进行了比较，这样就可以选择下一个有可能的位置，直接跳过中间不可能的位置，大大降低算法复杂度。</p>
+<p>于是这样就诞生了KMP算法。KMP算法通过一个辅助数组next保存子串的信息，next数组中每一位表示从子串开头到当前位的字符串的最大相同前缀后缀的长度。因为存储了这样的信息，当子串与长串进行匹配时，如果匹配不成功，就可以利用next的信息直接跳过已经比较的部分继续比较。</p>
+<p>比如，在要在文本串：aabaabaafa 中查找是否出现过一个模式串：aabaaf。子串aabaaf的next数组是[0, 1, 0, 1, 2, 0]。当比较到aabaab与aabaaf时，由于b和f不相同，所以停止比较，选择子串当前位置的前一位，获得next数组中该位的值也就是2，我们这时直接选择子串的索引为2的位，也就是b那一位与当前长串中匹配到的位进行匹配，并最终获得匹配成功的结果。</p>
+<p>在next数组中存储了最长相等前缀后缀的长度，所以当匹配到的b与f不同时，之前匹配过的子串aabaa与长串完全相同，所以我们可以选择最长的相同前缀，也就是子串开始的aa，与上面匹配过的b后面的aa进行匹配，由于这两部分一定相同，直接从下一位开始继续匹配，这样就在O(n)的时间复杂度下完成了匹配。</p>
+<p>构建next数组的过程，与匹配的过程类似，主要就是使用双指针来解一个字符串当前子串的最长相等前缀后缀。使用两个指针j,i分别指向0和1的位置，当ij指向的值相同时，j++; next[i] = j; 当不同时，j取前一位next[j - 1]，然后继续与i比较，直到相等或者j取到0。这样遍历一遍子串就可以获得next数组，所以总的时间复杂度就是O(m + n)。</p>
+<p>在写代码时，生成next数组和匹配的部分差不太多，不同的是在生成next数组时是自己跟自己比较，匹配的时候是两个字符串之间相互比较。当匹配完最后一位的时候停止循环。具体代码就不在这写了。</p>
+<h2 id="459-重复的子字符串"><a href="#459-重复的子字符串" class="headerlink" title="459. 重复的子字符串"></a>459. 重复的子字符串</h2><p>给定一个非空的字符串，判断它是否可以由它的一个子串重复多次构成。如果不是刚刚写了KMP算法的题，估计这题我也不会写。如果直接暴力判断的话，枚举子串长度，这样算法复杂度太高。但是结合刚刚学过的KMP算法的知识，这到题就可以转化成使用KMP算法求next数组的思想来求解。</p>
+<p>如果一个字符串可以通过子串重复若干次进行生成，那生成的next数组尾部会形成每次 + 1的规律，在最后一位会获得一个值，这个值加上子串的长度正好等于整个字符串的长度。</p>
+<h2 id="686-重复叠加字符串匹配"><a href="#686-重复叠加字符串匹配" class="headerlink" title="686. 重复叠加字符串匹配"></a>686. 重复叠加字符串匹配</h2><p>给定两个字符串 a 和 b，寻找重复叠加字符串 a 的最小次数，使得字符串 b 成为叠加后的字符串 a 的子串，如果不存在则返回 -1。</p>
+<p>这道题正好是今天的每日一题，也同样是利用KMP算法来进行匹配，首先计算b的长度然后将a重复若干次，直到a的长度大于等于b的长度，这时对两个字符串进行匹配，如果不能在a里找到b，就再加上一个a再匹配一次，如果仍然匹配不到的话就说明匹配不到了，返回-1.</p>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-12-21T22:05:43-08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>最后更新于：2021年12月21日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/LeetCode/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>LeetCode</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2021/12/21/20211221-leetcode/&title=2021.12.21 硬刚KMP算法 - Ted Xu&summary=28. 实现 strStr()459. 重复的子字符串686. 重复叠加字符串匹配今天刷的题基本上都是KMP算法的，正好借这个机会好好学习一下这个算法。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2021/12/21/20211221-leetcode/&title=2021.12.21 硬刚KMP算法 - Ted Xu&summary=28. 实现 strStr()459. 重复的子字符串686. 重复叠加字符串匹配今天刷的题基本上都是KMP算法的，正好借这个机会好好学习一下这个算法。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2021/12/21/20211221-leetcode/&title=2021.12.21 硬刚KMP算法 - Ted Xu&summary=28. 实现 strStr()459. 重复的子字符串686. 重复叠加字符串匹配今天刷的题基本上都是KMP算法的，正好借这个机会好好学习一下这个算法。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2021/12/20/20211220-zongjie/'>
+          <p class='title'>2021.12.20 假期的刷题计划+随笔<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>344. 反转字符串541. 反转字符串 II557. 反转字符串中的单词 III151. 翻转字符串里的单词剑指 Offer 58 - II. 左旋转字符串今天重新开始刷题了，刷了一堆字符串的...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -492,11 +684,26 @@
 
 
 
+  <section class="widget toc-wrapper shadow floatable desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#28-%E5%AE%9E%E7%8E%B0-strStr"><span class="toc-text">28. 实现 strStr()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#459-%E9%87%8D%E5%A4%8D%E7%9A%84%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">459. 重复的子字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#686-%E9%87%8D%E5%A4%8D%E5%8F%A0%E5%8A%A0%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D"><span class="toc-text">686. 重复叠加字符串匹配</span></a></li></ol>
+    </div>
+  </section>
+
 
   
 
 
 </aside>
+
 
 
         
@@ -506,8 +713,8 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="2021.12.21 硬刚KMP算法";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
