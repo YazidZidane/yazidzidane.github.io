@@ -5,10 +5,6 @@
   <!-- SEO相关 -->
   
     
-      
-        <meta name="robots" content="noindex,follow">
-      
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -23,9 +19,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>Ted Xu</title>
+  <title>2021.12.22 双指针 - Ted Xu</title>
+  
+    <meta name="keywords" content="LeetCode">
   
 
+  
+    <meta name="description" content="19. 删除链表的倒数第 N 个结点面试题 02.07. 链表相交142. 环形链表 II15. 三数之和今天没怎么认真刷题，重新做了几道简单题，回顾了一下双指针怎么用，只有最后一道题稍微有一点复杂。">
   
 
   <!-- feed -->
@@ -329,7 +329,7 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  featured' style="display: none;">
+        <div id="full" class='cover-wrapper post featured' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -400,422 +400,203 @@
         
 
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
-  <section class="post-list">
+
+
+  
+  <div class="article-meta" id="top">
     
     
+    
+      <h1 class="title">
+        2021.12.22 双指针
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="" rel="nofollow">
+    <img no-lazy src="/images/rowlet.png">
+    <p>Ted</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021年12月22日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/12/25/20201225-leetcode/">
-        LeetCode739 每日温度
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>第一次学习使用神奇的单调栈方法解每日温度问题。</p>
-    
+      <div id="lc-pv" data-title="2021.12.22 双指针" data-path="/2021/12/22/20211222-leetcode/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-12-25</time>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/">19. 删除链表的倒数第 N 个结点</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/intersection-of-two-linked-lists-lcci/">面试题 02.07. 链表相交</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/linked-list-cycle-ii/">142. 环形链表 II</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/3sum/">15. 三数之和</a><br>今天没怎么认真刷题，重新做了几道简单题，回顾了一下双指针怎么用，只有最后一道题稍微有一点复杂。</p>
+<a id="more"></a>
+
+<h2 id="19-删除链表的倒数第-N-个结点"><a href="#19-删除链表的倒数第-N-个结点" class="headerlink" title="19. 删除链表的倒数第 N 个结点"></a>19. 删除链表的倒数第 N 个结点</h2><p>这道题比较简单，不过一开始没有想到最好的办法。先是遍历一遍链表计数，然后再次遍历，找到链表的倒数第N - 1个结点然后删除下一个结点。一共就只有三种情况：删除的节点在链表首位，在链表中间和在链表末尾。注意判断就行了。更好的办法可以<strong>只使用一次遍历</strong>解决问题。首先可以在链表头部加上dummy结点，由于要删除链表的倒数第N个结点，可以使用快慢指针，让快指针先走N + 1步，然后同时移动快慢指针，当快指针到达链表末尾null的时候，慢指针的下一个结点就是将要删除的结点。</p>
+<h2 id="面试题-02-07-链表相交"><a href="#面试题-02-07-链表相交" class="headerlink" title="面试题 02.07. 链表相交"></a>面试题 02.07. 链表相交</h2><p>这题同样也比较简单，如果要判断两个链表是否相交，可以使用两个指针分别从两个链表头部开始遍历，遍历到末尾时，再指向另一个链表的头部，这样遍历结束后，两个指针都会遍历完相等于两个链表长度和的结点，最后到达nullptr。如果两个链表相交，那么两个指针会在同一个节点相遇，如果不相交，会在最后的null结点相遇。</p>
+<h2 id="142-环形链表-II"><a href="#142-环形链表-II" class="headerlink" title="142. 环形链表 II"></a>142. 环形链表 II</h2><p>这个题做过几遍了，但是突然遇见的时候感觉还是有点想不出来。首先使用快慢指针判断链表是否存在环，快指针每次走两步，慢指针每次走一步，如果链表中存在环的话，那么最终快慢指针一定会相遇，否则快指针会先遍历到链表末尾。当快慢指针相遇时，快指针走过的节点数是慢指针的两倍，假设从节点头部走到链表中环的第一个结点的长度是a，慢指针总共走过的长度是x，那么快指针走过的程度就是2x， 因为快指针正好比慢指针多走了x步，而正好又多走了环一圈的长度，所以环的一圈长度正好是x。如果要找到环的初始结点，需要慢指针再走a个结点，而从链表头部到环的初始结点的长度正好是a个结点，所以可以将快指针指向链表的头结点，然后每次走一步，这样最终快慢指针就会在链表的头结点相遇。</p>
+<h2 id="15-三数之和"><a href="#15-三数之和" class="headerlink" title="15. 三数之和"></a>15. 三数之和</h2><p>这道题就比较复杂了，要使用双指针的方法求解三数之和的问题。因为使用哈希法来求解，不仅时间复杂度会高一些，同时因为这题要求不包含重复三元组所以去重的步骤很繁琐。首先将第一个指针i指向头一个数，然后后面两个指针分别指向i + 1和末尾，然后每次判断三数之和，如果和大了的话就将右指针向左移动，小了的话就将左指针向右移动，然后如果遇到与上一次相同的数就跳过。虽然思路比较简单，但是具体实现的时候还是有许多细节的的地方需要注意的。明天可以在复习一下。</p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2020/12/25/20201225-leetcode/'>
-            阅读全文
-          </a>
-        </div>
+      
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-12-22T22:17:09-08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>最后更新于：2021年12月22日</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+          
   
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/12/24/20201224-football/">
-        论中国足球限薪令及球队名称中性化政策
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>第一次写关于中国足球的内容，文笔不好，如果文不达意还请谅解。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-12-24</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/12/24/20201224-football/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/LeetCode/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>LeetCode</p></a></div>
 
-</div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/12/17/20201217-leetcode/">
-        LeetCode121 买卖股票的最佳时机
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <ul>
-<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/">121. 买卖股票的最佳时机</a></li>
-<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/">122. 买卖股票的最佳时机 II</a></li>
-<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/">309. 最佳买卖股票时机含冷冻期</a></li>
-<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/">714. 买卖股票的最佳时机含手续费</a></li>
-<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/">123. 买卖股票的最佳时机 III</a></li>
-<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/">188. 买卖股票的最佳时机 IV</a></li>
-<li><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/gu-piao-de-zui-da-li-run-lcof/">剑指 Offer 63. 股票的最大利润</a> (与121相同)</li>
-</ul>
-<p>我在LeetCode买股票之利益最大化。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-12-17</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/12/17/20201217-leetcode/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/12/14/20201214-learn/">
-        互联网开发学习路线整理
-      </a>
-    </h2>
-  
-  <div class='md'>
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
       
-        学习网址与APP手机APP-慕课网：各种方面的课程，入门学习（偏基础，了解）网站-极客学院：各种方面教程，Docker，AWS教程（较深入，重点学习）网站-Java知识分享网：Java全面教程，重点：第八阶段Dubbo&amp;Springcloud教程网站-阿里云：上面有各种类型的教程，可以学习使用
-前端HTML, CSS, H5, JS等等基础。。。框架： Vue国内比较多， Faceb...
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2021/12/22/20211222-leetcode/&title=2021.12.22 双指针 - Ted Xu&summary=19. 删除链表的倒数第 N 个结点面试题 02.07. 链表相交142. 环形链表 II15. 三数之和今天没怎么认真刷题，重新做了几道简单题，回顾了一下双指针怎么用，只有最后一道题稍微有一点复杂。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2021/12/22/20211222-leetcode/&title=2021.12.22 双指针 - Ted Xu&summary=19. 删除链表的倒数第 N 个结点面试题 02.07. 链表相交142. 环形链表 II15. 三数之和今天没怎么认真刷题，重新做了几道简单题，回顾了一下双指针怎么用，只有最后一道题稍微有一点复杂。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2021/12/22/20211222-leetcode/&title=2021.12.22 双指针 - Ted Xu&summary=19. 删除链表的倒数第 N 个结点面试题 02.07. 链表相交142. 环形链表 II15. 三数之和今天没怎么认真刷题，重新做了几道简单题，回顾了一下双指针怎么用，只有最后一道题稍微有一点复杂。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+    
       
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-12-14</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/12/14/20201214-learn/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
 </div>
 
-          </div>
+
+
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/12/14/20201214-leetcode/">
-        LeetCode102 二叉树的层序遍历
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>RT，二叉树的层序遍历</p>
-    
+    </div>
   </div>
+
+
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-12-14</time>
-        
-      </div>
+  
+
+  
+    <div class="prev-next">
       
-        <div>
-          <a class='readmore' href='/2020/12/14/20201214-leetcode/'>
-            阅读全文
-          </a>
-        </div>
+      
+        <a class='next' href='/2021/12/21/20211221-leetcode/'>
+          <p class='title'>2021.12.21 硬刚KMP算法<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>28. 实现 strStr()459. 重复的子字符串686. 重复叠加字符串匹配今天刷的题基本上都是KMP算法的，正好借这个机会好好学习一下这个算法。
+
+
+28. 实现 strStr()KMP...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/12/11/Volantis%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">
-        Volantis主题设置学习日记
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>这是我的Volantis主题设置学习日记，主要包括我在使用Volantis过程中遇到的疑难杂症以及一些细节问题。文中所有内容以<a target="_blank" rel="noopener" href="https://volantis.js.org/getting-started/">Volantis官方文档</a>为准。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-12-11</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/12/11/Volantis%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
+  </article>
 
-</div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/12/10/2020-12-10-a-new-article/">
-        2020-12-10:a New Article
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        This is a new article
 
-1$ hexo server
 
-RUNOOB.COMGOOGLE.COMBAIDU.COM
-
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-12-10</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/12/10/2020-12-10-a-new-article/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/12/10/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87Markdown%E5%8D%9A%E5%AE%A2%E2%98%9D/">
-        我的第一篇Markdown博客☝
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>这是我使用markdown语法写的第一篇博客，其中主要目的是测试markdown语法的各种功能以及写一些以后可以在这个博客中继续学习的方面。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-12-10</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/12/10/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87Markdown%E5%8D%9A%E5%AE%A2%E2%98%9D/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/12/09/hello-world/">
-        Hello World
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Qu...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-12-09</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/12/09/hello-world/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-          <a class="prev" rel="prev" href="/">
-            <section class="post prev white-box shadow" >
-              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页&nbsp;
-            </section>
-          </a>
-        
-        <p class="current">
-          2 / 2
-        </p>
-        
-      </div>
-    
-  
 
 
 </div>
@@ -896,155 +677,22 @@ Qu...
     
     
 
-  
 
-  
-    
-    
-  
 
-  <section class="widget tagcloud shadow floatable desktop mobile">
+  <section class="widget toc-wrapper shadow floatable desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <a href="/tags/DNS/" style="font-size: 14px; color: #999">DNS</a> <a href="/tags/HTTP/" style="font-size: 14px; color: #999">HTTP</a> <a href="/tags/LeetCode/" style="font-size: 24px; color: #555">LeetCode</a> <a href="/tags/Volantis/" style="font-size: 14px; color: #999">Volantis</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 14px; color: #999">二叉树</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 14px; color: #999">动态规划</a> <a href="/tags/%E5%8D%95%E8%B0%83%E6%A0%88/" style="font-size: 14px; color: #999">单调栈</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 14px; color: #999">开发</a> <a href="/tags/%E6%9C%80%E5%A4%A7%E5%A0%86/" style="font-size: 14px; color: #999">最大堆</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 17.33px; color: #828282">计算机网络</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" style="font-size: 14px; color: #999">设计原则</a> <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">贪心算法</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" style="font-size: 14px; color: #999">软件工程</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 20.67px; color: #6c6c6c">随笔</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px; color: #999">面试</a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%AC-N-%E4%B8%AA%E7%BB%93%E7%82%B9"><span class="toc-text">19. 删除链表的倒数第 N 个结点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98-02-07-%E9%93%BE%E8%A1%A8%E7%9B%B8%E4%BA%A4"><span class="toc-text">面试题 02.07. 链表相交</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#142-%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8-II"><span class="toc-text">142. 环形链表 II</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="toc-text">15. 三数之和</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-
-<section class="widget shadow floatable desktop">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>19 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2020/12/10'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-        <div class="webinfo-item">
-          <div>本站总字数：</div>
-          <div>20.7k 字</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="busuanzi_value_site_uv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="busuanzi_value_site_pv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Wed Dec 22 2021 22:22:32 GMT-0800 (北美太平洋标准时间)</div>
-            <div id="last-update-show">2021-12-22 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-12-22 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
 
   
 
@@ -1060,8 +708,8 @@ Qu...
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="2021.12.22 双指针";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
