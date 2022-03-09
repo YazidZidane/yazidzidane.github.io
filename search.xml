@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>2022.3.8 差分</title>
+      <link href="2022/03/08/20220308-leetcode/"/>
+      <url>2022/03/08/20220308-leetcode/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://leetcode-cn.com/problems/corporate-flight-bookings/">1109. 航班预订统计</a><br><a href="https://leetcode-cn.com/problems/smallest-rotation-with-highest-score/">798. 得分最高的最小轮调</a></p><p>不知不觉，这么长时间过去了，重新开始刷题了，今天来看一下差分的方法。</p><a id="more"></a><h2 id="1109-航班预订统计"><a href="#1109-航班预订统计" class="headerlink" title="1109. 航班预订统计"></a>1109. 航班预订统计</h2><p>这道题其实之前也做过，但是再一次看到的时候还是只能想到暴力方法，与之前一模一样超时了，晕。仔细看了看题解，原来要使用<strong>差分</strong>的方法。所谓差分，就是求前缀和的逆向操作。通过不断对数组的区间进行修改，最终可以获得一个前缀和数组。在这题中，每次对于一段时间内的数组进行增加操作，除了使用暴力方法以外，我们可以使用差分将时间复杂度减小到O(1)。<br>那么具体差分的方法：</p><div class="note link green"><p>对于区间[l,r]整体增加一个值v<br> 我们可以在区间左侧对于c[l] += v，这样相当于对于从l开始的数组所有数都加上一个值v。<br> 然后对c[r+1] -= v，由于我们只需要在[l,r]范围内对所有值加v，所以在这一段区间结束之后需要再将加上的值减掉，这样相当于抵消了之前+v的影响。也可以理解为：对从r+1开始的数组所有值-v，这样从c[r+1]开始所有的值先加了v后减了v，相当于没有变化。如果r+1大于了数组长度n，就不用管了。</p></div><p>这样，对于所有的区间操作结束之后，我们就会获得一个前缀和数组，然后就可以对数组进行各种操作了。</p><h2 id="798-得分最高的最小轮调"><a href="#798-得分最高的最小轮调" class="headerlink" title="798. 得分最高的最小轮调"></a>798. 得分最高的最小轮调</h2><p>这题同样也使用了差分的方法，首先对于数组中每个数分析，得到对于每个数来说可以得分的范围。经过分析根据每个数x与下标i的大小可以有两种情况：  </p><p>第一种得到的k在[i+1, i-x+n]内，所以只需要将数组[i+1]加一，[i-x+n]减一就可以了。  </p><p>对于第二种情况，k在[0, i-x]和[i+1, n-1]内，同样也对于[i+1]加一，[i-x]减一，但是这时由于i-x &lt; i+1， 相当于我们只在i+1后面的值加了一，而对于[0, i-x]，我们只在i-x减了一，所以需要在[0]处额外加一，这样才相当于对两个区间都进行了加一操作。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2021.12.22 双指针</title>
       <link href="2021/12/22/20211222-leetcode/"/>
       <url>2021/12/22/20211222-leetcode/</url>
@@ -149,7 +168,7 @@
       <link href="2021/03/06/20210306/"/>
       <url>2021/03/06/20210306/</url>
       
-        <content type="html"><![CDATA[<p>最近学习生活繁忙，先画一些大饼，能不能完成以后再说。。。ヽ(。&gt;д&lt;)ｐ</p><a id="more"></a><h2 id="LeetCode生成题解md脚本"><a href="#LeetCode生成题解md脚本" class="headerlink" title="LeetCode生成题解md脚本"></a>LeetCode生成题解md脚本</h2><p>经历了大概两个月的摸鱼，最近终于又重新开始搞LeetCode了，其实之前一直想整一个可以自动生成题解的框架，就像我之前的一些文章一样自动生成题目链接，题目简介，示例输入输出，甚至代码这样的脚本。其实实现起来应该并不难，只需要做一个爬虫就好了，然后解析一下网页把相关的内容粘下来，不过由于懒一直都没有做。。。</p><h2 id="网易BUFF-amp-amp-Steam社区市场爬虫"><a href="#网易BUFF-amp-amp-Steam社区市场爬虫" class="headerlink" title="网易BUFF &amp;&amp; Steam社区市场爬虫"></a>网易BUFF &amp;&amp; Steam社区市场爬虫</h2><p>这个也是老早就想做的了，由于自己是一名csgo玩家，很早之前就想做一个爬虫软件，自动将buff和steam市场的数据爬下来自己使用，当然网上也有很多现成的代码，不知道能不能使用，不过这个也是从去年就开始计划做的东西了。。。</p><h2 id="GitHub密钥设置"><a href="#GitHub密钥设置" class="headerlink" title="GitHub密钥设置"></a>GitHub密钥设置</h2><p>把这篇文章传上去之后，我收到了GitHub发来的一篇邮件，里面说要使用新的git认证方式：</p><div class="note quote"><p><strong>GitHub</strong></p><p>Hi @YazidZidane,</p><p>You recently used a password to access the repository at YazidZidane/yazidzidane.github.io with git using git/2.29.2.windows.3.</p><p>Basic authentication using a password to Git is deprecated and will soon no longer work. Visit <a href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/">https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/</a> for more information around suggested workarounds and removal dates.</p><p>Thanks,<br>The GitHub Team</p></div><p>这个我暂时还没整明白是咋回事，不知道是不是跟之前搞过的ssh key一样，总之应该尽快搞一下。</p><div class="note quote"><p><strong>后续</strong></p><p>已解决，主要就是我之前对hexo主题配置的有问题。</p><p>解决这个问题，首先需要在Github中设置SSHkey，具体可以百度。</p><p>设置好后，在github上点开你的仓库，然后点击Code按钮，下面会有一个可以复制的地址，格式为<a href="mailto:&#x67;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;">&#x67;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;</a>:你的昵称/仓库里的.git文件，上面会显示SSH，复制这个地址。</p><p>然后在hexo主题下的_config.yml文件中找到# Deployment下的deploy一栏，将其中的repo后面的内容修改为上一步中复制的地址。</p><p>再次使用hexo d，就不会再提示这样的消息了。</p></div><h2 id="4-12-自动填写简历脚本"><a href="#4-12-自动填写简历脚本" class="headerlink" title="4.12    自动填写简历脚本"></a>4.12    自动填写简历脚本</h2><p>最近经常投各种简历嘛，然后我个人最反感的一件事就是我明明费尽心思已经制作好了一个简明，清晰，全面的简历，却还要在各种网站上一项一项的填好姓名，性别，生日，身份证号，手机，项目经历，实习经历，个人简介。。。。。。。虽然填一次两次没什么，但是天天填简直烦死了好不好！(╬｀益´)ｺ</p><p>如果能整一个自动填写简历的脚本就好了，不过感觉这个可能不太好实现，毕竟各个网页的组成也不一样，如果只用selenium写一个简单的脚本的话恐怕不太行。</p>]]></content>
+        <content type="html"><![CDATA[<p>最近学习生活繁忙，先画一些大饼，能不能完成以后再说。。。ヽ(。&gt;д&lt;)ｐ</p><a id="more"></a><h2 id="LeetCode生成题解md脚本"><a href="#LeetCode生成题解md脚本" class="headerlink" title="LeetCode生成题解md脚本"></a>LeetCode生成题解md脚本</h2><p>经历了大概两个月的摸鱼，最近终于又重新开始搞LeetCode了，其实之前一直想整一个可以自动生成题解的框架，就像我之前的一些文章一样自动生成题目链接，题目简介，示例输入输出，甚至代码这样的脚本。其实实现起来应该并不难，只需要做一个爬虫就好了，然后解析一下网页把相关的内容粘下来，不过由于懒一直都没有做。。。</p><h2 id="网易BUFF-amp-amp-Steam社区市场爬虫"><a href="#网易BUFF-amp-amp-Steam社区市场爬虫" class="headerlink" title="网易BUFF &amp;&amp; Steam社区市场爬虫"></a>网易BUFF &amp;&amp; Steam社区市场爬虫</h2><p>这个也是老早就想做的了，由于自己是一名csgo玩家，很早之前就想做一个爬虫软件，自动将buff和steam市场的数据爬下来自己使用，当然网上也有很多现成的代码，不知道能不能使用，不过这个也是从去年就开始计划做的东西了。。。</p><h2 id="GitHub密钥设置"><a href="#GitHub密钥设置" class="headerlink" title="GitHub密钥设置"></a>GitHub密钥设置</h2><p>把这篇文章传上去之后，我收到了GitHub发来的一篇邮件，里面说要使用新的git认证方式：</p><div class="note quote"><p><strong>GitHub</strong></p><p>Hi @YazidZidane,</p><p>You recently used a password to access the repository at YazidZidane/yazidzidane.github.io with git using git/2.29.2.windows.3.</p><p>Basic authentication using a password to Git is deprecated and will soon no longer work. Visit <a href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/">https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/</a> for more information around suggested workarounds and removal dates.</p><p>Thanks,<br>The GitHub Team</p></div><p>这个我暂时还没整明白是咋回事，不知道是不是跟之前搞过的ssh key一样，总之应该尽快搞一下。</p><div class="note quote"><p><strong>后续</strong></p><p>已解决，主要就是我之前对hexo主题配置的有问题。</p><p>解决这个问题，首先需要在Github中设置SSHkey，具体可以百度。</p><p>设置好后，在github上点开你的仓库，然后点击Code按钮，下面会有一个可以复制的地址，格式为<a href="mailto:&#x67;&#105;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;">&#x67;&#105;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;</a>:你的昵称/仓库里的.git文件，上面会显示SSH，复制这个地址。</p><p>然后在hexo主题下的_config.yml文件中找到# Deployment下的deploy一栏，将其中的repo后面的内容修改为上一步中复制的地址。</p><p>再次使用hexo d，就不会再提示这样的消息了。</p></div><h2 id="4-12-自动填写简历脚本"><a href="#4-12-自动填写简历脚本" class="headerlink" title="4.12    自动填写简历脚本"></a>4.12    自动填写简历脚本</h2><p>最近经常投各种简历嘛，然后我个人最反感的一件事就是我明明费尽心思已经制作好了一个简明，清晰，全面的简历，却还要在各种网站上一项一项的填好姓名，性别，生日，身份证号，手机，项目经历，实习经历，个人简介。。。。。。。虽然填一次两次没什么，但是天天填简直烦死了好不好！(╬｀益´)ｺ</p><p>如果能整一个自动填写简历的脚本就好了，不过感觉这个可能不太好实现，毕竟各个网页的组成也不一样，如果只用selenium写一个简单的脚本的话恐怕不太行。</p>]]></content>
       
       
       

@@ -471,7 +471,7 @@
 <div class="note quote"><p><strong>GitHub</strong></p><p>Hi @YazidZidane,</p><p>You recently used a password to access the repository at YazidZidane/yazidzidane.github.io with git using git/2.29.2.windows.3.</p><p>Basic authentication using a password to Git is deprecated and will soon no longer work. Visit <a target="_blank" rel="noopener" href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/">https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/</a> for more information around suggested workarounds and removal dates.</p><p>Thanks,<br>The GitHub Team</p></div>
 
 <p>这个我暂时还没整明白是咋回事，不知道是不是跟之前搞过的ssh key一样，总之应该尽快搞一下。</p>
-<div class="note quote"><p><strong>后续</strong></p><p>已解决，主要就是我之前对hexo主题配置的有问题。</p><p>解决这个问题，首先需要在Github中设置SSHkey，具体可以百度。</p><p>设置好后，在github上点开你的仓库，然后点击Code按钮，下面会有一个可以复制的地址，格式为<a href="mailto:&#x67;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;">&#x67;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#109;</a>:你的昵称/仓库里的.git文件，上面会显示SSH，复制这个地址。</p><p>然后在hexo主题下的_config.yml文件中找到# Deployment下的deploy一栏，将其中的repo后面的内容修改为上一步中复制的地址。</p><p>再次使用hexo d，就不会再提示这样的消息了。</p></div>
+<div class="note quote"><p><strong>后续</strong></p><p>已解决，主要就是我之前对hexo主题配置的有问题。</p><p>解决这个问题，首先需要在Github中设置SSHkey，具体可以百度。</p><p>设置好后，在github上点开你的仓库，然后点击Code按钮，下面会有一个可以复制的地址，格式为<a href="mailto:&#x67;&#105;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;">&#x67;&#105;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;</a>:你的昵称/仓库里的.git文件，上面会显示SSH，复制这个地址。</p><p>然后在hexo主题下的_config.yml文件中找到# Deployment下的deploy一栏，将其中的repo后面的内容修改为上一步中复制的地址。</p><p>再次使用hexo d，就不会再提示这样的消息了。</p></div>
 
 
 
