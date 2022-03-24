@@ -5,10 +5,6 @@
   <!-- SEO相关 -->
   
     
-      
-        <meta name="robots" content="index,follow">
-      
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -23,13 +19,14 @@
 
   <!-- 页面元数据 -->
   
-  <title>Ted Xu</title>
+  <title>2022.3.23 二分查找 - Ted Xu</title>
   
-    <meta name="keywords" content="YazidZidane">
+    <meta name="keywords" content="LeetCode,二分查找">
   
 
   
-    <meta name="description" content="A simple website made by GitHub Pages, Hexo and Volantis theme.">
+    <meta name="description" content="33. Search in Rotated Sorted Array34. Find First and Last Position of Element in Sorted Array
+今天稍微复习一下二分查找。">
   
 
   <!-- feed -->
@@ -62,7 +59,7 @@
 <body>
   
 
-<header id="l_header" class="l_header auto shadow floatable " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow floatable show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -333,7 +330,7 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  featured' style="display: ;">
+        <div id="full" class='cover-wrapper post featured' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -393,7 +390,7 @@
   </div>
 </div>
 
-          <div id="scroll-down" style="display: ;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
         </div>
     
   
@@ -404,506 +401,221 @@
         
 
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
+
+
+  
+  <div class="article-meta" id="top">
     
     
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
     
-    <h2 class="article-title" >
-      <a href="/2022/03/23/20220323-leetcode/">
+      <h1 class="title">
         2022.3.23 二分查找
-      </a>
-    </h2>
-  
-  <div class='md'>
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="" rel="nofollow">
+    <img no-lazy src="/images/rowlet.png">
+    <p>Ted</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年3月23日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="2022.3.23 二分查找" data-path="/2022/03/23/20220323-leetcode/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
     
-      <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/search-in-rotated-sorted-array/">33. Search in Rotated Sorted Array</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/">34. Find First and Last Position of Element in Sorted Array</a></p>
+  </div>
+
+
+  
+  <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/search-in-rotated-sorted-array/">33. Search in Rotated Sorted Array</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/">34. Find First and Last Position of Element in Sorted Array</a></p>
 <p>今天稍微复习一下二分查找。</p>
-    
-  </div>
+<a id="more"></a>
+
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>二分查找主要用于在一系列连续的数中找到指定的一个，通常这一系列数要具有以下一些属性：<strong>有序排列</strong>且<strong>存储在数组中</strong>（存储在链表里不能用二分）。</p>
+<p>二分查找通过维护查找空间的左右中三个位置，不断通过对中间数与目标数进行比较缩小左右区间。由于每次至少能保证清除掉一半不可能的数，所以时间复杂度为O(logn)。</p>
+<p>在leetcode上给了三种二分的模板，目前感觉前两种比较好用。</p>
+<h2 id="模板1（l-lt-r）"><a href="#模板1（l-lt-r）" class="headerlink" title="模板1（l &lt;= r）"></a>模板1（l &lt;= r）</h2><p>首先对于各种模板，通用的一种计算mid的防暑不能忘，因为l + r可能导致<strong>整数范围溢出</strong>，所以使用<strong>l + (r - l) / 2</strong>代替。另外在代码中的判断最好全部用if和else if防止漏掉某种情况。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(nums.size() == <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.size() - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span>(left &lt;= right)&#123;</span><br><span class="line">    <span class="comment">// Prevent (left + right) overflow</span></span><br><span class="line">    <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>; </span><br><span class="line">    <span class="keyword">if</span>(nums[mid] == target)&#123; <span class="keyword">return</span> mid; &#125; <span class="comment">// 一般来说不用加上这一行，在退出循环的时候可以判断返回l或r</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid] &lt; target) &#123; left = mid + <span class="number">1</span>; &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123; right = mid - <span class="number">1</span>; &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// End Condition: left &gt; right</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>首先是第一种模板，这种模板的主要特点就是判断条件中的(l &lt;= r)，这样只有当l大于r时才会停止循环，换句话说，当最后l == r时，同样会进行一次判断mid(mid == l == r)是不是需要的数。所以，这种方法可以保证对于数据中的每一个数都进行判断，不会有遗漏的数据。</p>
+<p>另外这种方法比较容易记，因为起始条件就是标准的，而且每次更新查找范围的话直接使用l = mid + 1, r = mid - 1就可以了。</p>
+<h2 id="模板2-l-lt-r"><a href="#模板2-l-lt-r" class="headerlink" title="模板2 (l &lt; r)"></a>模板2 (l &lt; r)</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(nums.size() == <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.size();</span><br><span class="line">  <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">    <span class="comment">// Prevent (left + right) overflow</span></span><br><span class="line">    <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(nums[mid] == target)&#123; <span class="keyword">return</span> mid; &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(nums[mid] &lt; target) &#123; left = mid + <span class="number">1</span>; &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123; right = mid; &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Post-processing:</span></span><br><span class="line">  <span class="comment">// End Condition: left == right</span></span><br><span class="line">  <span class="keyword">if</span>(left != nums.size() &amp;&amp; nums[left] == target) <span class="keyword">return</span> left;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于模板二，这个模板的判断条件是(l &lt; r)也就是说当最后l == r的时候就会退出。这个模板在判断的时候维护了一个左闭右开的区间[l, r)，也就是在每次循环的时候最右边的r其实不会被取到（除了最后一次l == r）。因此在实际代码中，每次循环都至少保证了<strong>查找空间的大小至少为2</strong>，因此我们可以对mid和mid + 1进行访问而不用担心数组下标越界。</p>
+<p><strong>但是这个官方模板的起始条件是从r = n开始的，我平时使用r = n - 1感觉也没有问题。</strong></p>
+<p>在实际做题中感觉对于查找第一个什么什么数，或者第一次出现的一个pattern比较适合使用这种情况。</p>
+<p>比如在<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/first-bad-version/">278. First Bad Version</a>中，如果mid不是bad version的话就令l = mid + 1，是的话因为mid也有可能是first bad version，所以令r = mid防止将正确答案排除掉。</p>
+<p>在<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-peak-element/">162. Find Peak Element</a>中，每次将当前的数nums[mid]和nums[mid + 1]进行比较，如果小于，说明当前在一个上升的“坡”上，继续向前一定会有一个峰值（如果到了数组末尾，因为将数组第n为视作负无穷，数组最后一个值将会是一个峰值），此时就令l = mid + 1，如果大于，则mid有可能是一个峰值，令r = mid防止将mid排除。</p>
+<p>在<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/">34. Find First and Last Position of Element in Sorted Array</a>中，首先要查找到第一个等于target的数，这样就对于numd[mid]和target进行比较，如果小于的话说明target一定在mid右边，令l = mid + 1，如果大于等于（因为在数组中<strong>可能有多个target存在</strong>），则mid有可能是第一个target，令r = mid防止删除mid。</p>
+<p>但是如果要查最后一个target，直接用模板就<strong>不行</strong>了。因为如果此时用mid和target比较，因为此时当mid == target时，就只能令l = mid了，这样的话如果<strong>最后剩下两个数l,r的时候会导致无限循环</strong>。</p>
+<p>所以与其找最后一个target，不如<strong>找比target大的第一个数</strong>。所以在代码里令target + 1，这样即使没有找到的话循环也会停在比target大的第一个数的位置。所以对于numd[mid]和target + 1进行比较，如果小于的话说明target + 1一定在mid右边，令l = mid + 1，如果大于等于的话令r = mid。因为每次寻找的范围都严格大于target，所以即使数组里没有target + 1，循环也会停在最后一个target的下一位。</p>
+<p>同时也要记得判断当前位置的数的前一位是不是target，因为如果数组中不存在target的话也能找到一个数，但是这个答案就没有意义了。</p>
+<p>另外这道题还有很多种特殊情况需要判断，比如数组第一个或/和最后一个就是target，数组长度为0等等，是一道非常弱智的题。</p>
+<p>对于官方给出的模板三，做了一道题感觉实在太麻烦了所以就没记，不过看了别人的教程说这三种模板其实都是一样的所以就不看了。</p>
+
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2022-03-23</time>
-        
-      </div>
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2022/03/23/20220323-leetcode/'>
-            阅读全文
-          </a>
-        </div>
+      
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-03-23T22:55:03-07:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>最后更新于：2022年3月23日</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+          
   
-  
-  
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/LeetCode/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>LeetCode</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>二分查找</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
-    <h2 class="article-title" >
-      <a href="/2022/03/13/20220313-leetcode/">
-        2022.3.13 二叉树遍历
-      </a>
-    </h2>
-  
-  <div class='md'>
+      
     
-      <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-preorder-traversal/">144. 二叉树的前序遍历</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-postorder-traversal/">145. 二叉树的后序遍历</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal/">94. 二叉树的中序遍历</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal/">102. 二叉树的层序遍历</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/">103. 二叉树的锯齿形层序遍历</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/">589. N 叉树的前序遍历</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/n-ary-tree-postorder-traversal/">590. N 叉树的后序遍历</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/n-ary-tree-level-order-traversal/">429. N 叉树的层序遍历</a></p>
-<p>这两天做了好多二叉树N叉树的各种遍历题，稍微总结一下。</p>
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/03/23/20220323-leetcode/&title=2022.3.23 二分查找 - Ted Xu&summary=33. Search in Rotated Sorted Array34. Find First and Last Position of Element in Sorted Array
+今天稍微复习一下二分查找。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/03/23/20220323-leetcode/&title=2022.3.23 二分查找 - Ted Xu&summary=33. Search in Rotated Sorted Array34. Find First and Last Position of Element in Sorted Array
+今天稍微复习一下二分查找。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/03/23/20220323-leetcode/&title=2022.3.23 二分查找 - Ted Xu&summary=33. Search in Rotated Sorted Array34. Find First and Last Position of Element in Sorted Array
+今天稍微复习一下二分查找。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+    
+      
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+</div>
+
+
+
         
-        <time>2022-03-13</time>
-        
-      </div>
       
-        <div>
-          <a class='readmore' href='/2022/03/13/20220313-leetcode/'>
-            阅读全文
-          </a>
-        </div>
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2022/03/13/20220313-leetcode/'>
+          <p class='title'>2022.3.13 二叉树遍历<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>144. 二叉树的前序遍历145. 二叉树的后序遍历94. 二叉树的中序遍历102. 二叉树的层序遍历103. 二叉树的锯齿形层序遍历589. N 叉树的前序遍历590. N 叉树的后序遍历42...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2022/03/08/20220308-leetcode/">
-        2022.3.8 差分
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/corporate-flight-bookings/">1109. 航班预订统计</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/smallest-rotation-with-highest-score/">798. 得分最高的最小轮调</a></p>
-<p>不知不觉，这么长时间过去了，重新开始刷题了，今天来看一下差分的方法。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2022-03-08</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/03/08/20220308-leetcode/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
+  </article>
 
-</div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/12/22/20211222-leetcode/">
-        2021.12.22 双指针
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/">19. 删除链表的倒数第 N 个结点</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/intersection-of-two-linked-lists-lcci/">面试题 02.07. 链表相交</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/linked-list-cycle-ii/">142. 环形链表 II</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/3sum/">15. 三数之和</a><br>今天没怎么认真刷题，重新做了几道简单题，回顾了一下双指针怎么用，只有最后一道题稍微有一点复杂。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-12-22</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/12/22/20211222-leetcode/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
 
-</div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/12/21/20211221-leetcode/">
-        2021.12.21 硬刚KMP算法
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/implement-strstr/">28. 实现 strStr()</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/repeated-substring-pattern/">459. 重复的子字符串</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/repeated-string-match/">686. 重复叠加字符串匹配</a><br>今天刷的题基本上都是KMP算法的，正好借这个机会好好学习一下这个算法。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-12-21</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/12/21/20211221-leetcode/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/12/20/20211220-zongjie/">
-        2021.12.20 假期的刷题计划+随笔
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-string/">344. 反转字符串</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-string-ii/">541. 反转字符串 II</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-words-in-a-string-iii/">557. 反转字符串中的单词 III</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-words-in-a-string/">151. 翻转字符串里的单词</a><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof/">剑指 Offer 58 - II. 左旋转字符串</a><br>今天重新开始刷题了，刷了一堆字符串的题目，另外可能再写一点随笔</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-12-20</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/12/20/20211220-zongjie/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/04/23/20210423-interview-bilibili/">
-        2021.4.23 哔哩哔哩游戏客户端开发实习面试
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>今天去面试了B站的游戏客户端开发的实习岗位，怎么说呢，应该是我第一次正式的现场面试吧，稍微有点紧张，表现的也不是太好，面试后回忆了一下问题，感觉跟之前准备的也有一些出入，总体来说还是一次不错的经验吧。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-04-23</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/04/23/20210423-interview-bilibili/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/04/22/20210422-sd/">
-        面向对象设计的原则
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>今天在看面经的时候看到了一道问题：面向对象设计的原则。虽然学计算机这么多年，但我从来没有在设计原则这方面进行过学习，对于那些设计模式、MVC这样的东西更是一知半解，今天利用这个机会稍微学习一下。</p>
-<p>这篇文章还没完成，内容是从下面的参考文章抄来的，具体还有待完善。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-04-22</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/04/22/20210422-sd/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/04/21/20200421-network/">
-        DNS查询过程，递归查询与迭代查询
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>今天复习了一下DNS的相关知识，水一篇文章记录一下。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-04-21</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/04/21/20200421-network/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/04/07/20210407/">
-        HTTP与HTTPS，一些关键地方的理解
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>最近在面试中被问到了HTTP与HTTPS的一些问题，今天稍微学习了一下HTTP与HTTPS，在这里整理一下一些重要地方的理解。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-04-07</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/04/07/20210407/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-        <p class="current">
-          1 / 3
-        </p>
-        
-          <a class="next" rel="next" href="/page/2/">
-            <section class="post next white-box shadow">
-              &nbsp;下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
-    
-  
 
 
 </div>
@@ -984,155 +696,22 @@
     
     
 
-  
 
-  
-    
-    
-  
 
-  <section class="widget tagcloud shadow floatable desktop mobile">
+  <section class="widget toc-wrapper shadow floatable desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <a href="/tags/DNS/" style="font-size: 14px; color: #999">DNS</a> <a href="/tags/HTTP/" style="font-size: 14px; color: #999">HTTP</a> <a href="/tags/LeetCode/" style="font-size: 24px; color: #555">LeetCode</a> <a href="/tags/Volantis/" style="font-size: 14px; color: #999">Volantis</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 14px; color: #999">二分查找</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 17.33px; color: #828282">二叉树</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 14px; color: #999">动态规划</a> <a href="/tags/%E5%8D%95%E8%B0%83%E6%A0%88/" style="font-size: 14px; color: #999">单调栈</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 14px; color: #999">开发</a> <a href="/tags/%E6%9C%80%E5%A4%A7%E5%A0%86/" style="font-size: 14px; color: #999">最大堆</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 17.33px; color: #828282">计算机网络</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" style="font-size: 14px; color: #999">设计原则</a> <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">贪心算法</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" style="font-size: 14px; color: #999">软件工程</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 20.67px; color: #6c6c6c">随笔</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 14px; color: #999">面试</a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-text">应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF1%EF%BC%88l-lt-r%EF%BC%89"><span class="toc-text">模板1（l &lt;&#x3D; r）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF2-l-lt-r"><span class="toc-text">模板2 (l &lt; r)</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-
-<section class="widget shadow floatable desktop">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>22 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2020/12/10'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-        <div class="webinfo-item">
-          <div>本站总字数：</div>
-          <div>24.2k 字</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="busuanzi_value_site_uv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="busuanzi_value_site_pv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Wed Mar 23 2022 22:55:14 GMT-0700 (北美太平洋夏令时间)</div>
-            <div id="last-update-show">2022-03-23 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2022-03-23 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
 
   
 
@@ -1148,14 +727,14 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="2022.3.23 二分查找";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
 </script>
 
